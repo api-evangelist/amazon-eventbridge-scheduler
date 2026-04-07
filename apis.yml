@@ -8,11 +8,11 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Scheduling
-  - Serverless
-  - Event-Driven
   - Automation
   - AWS
+  - Event-Driven
+  - Scheduling
+  - Serverless
 url: >-
   https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/apis.yml
 created: '2026-03-16'
@@ -28,9 +28,9 @@ apis:
     humanURL: https://aws.amazon.com/eventbridge/scheduler/
     baseURL: https://scheduler.amazonaws.com
     tags:
+      - Automation
       - Scheduling
       - Serverless
-      - Automation
     properties:
       - type: Documentation
         url: https://docs.aws.amazon.com/scheduler/latest/APIReference/Welcome.html

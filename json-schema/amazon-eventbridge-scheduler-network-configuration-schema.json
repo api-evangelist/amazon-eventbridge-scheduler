@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-schema/amazon-eventbridge-scheduler-network-configuration-schema.json",
+  "title": "NetworkConfiguration",
+  "description": "Specifies the network configuration for an ECS task.",
+  "type": "object",
+  "properties": {
+    "awsvpcConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AwsVpcConfiguration"
+        },
+        {
+          "description": "Specifies the Amazon VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-schema/amazon-eventbridge-scheduler-target-summary-schema.json",
+  "title": "TargetSummary",
+  "description": "The details of a target.",
+  "type": "object",
+  "properties": {
+    "Arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TargetArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the target."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Arn"
+  ]
+}

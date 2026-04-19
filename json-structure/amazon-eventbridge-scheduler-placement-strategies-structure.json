@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-structure/amazon-eventbridge-scheduler-placement-strategies-structure.json",
+  "name": "PlacementStrategies",
+  "description": "PlacementStrategies schema from Amazon EventBridge Scheduler",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/PlacementStrategy"
+  },
+  "minItems": 0,
+  "maxItems": 5
+}

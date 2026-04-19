@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-structure/amazon-eventbridge-scheduler-schedule-group-name-structure.json",
+  "name": "ScheduleGroupName",
+  "description": "ScheduleGroupName schema from Amazon EventBridge Scheduler",
+  "type": "string",
+  "pattern": "^[0-9a-zA-Z-_.]+$",
+  "minLength": 1,
+  "maxLength": 64
+}

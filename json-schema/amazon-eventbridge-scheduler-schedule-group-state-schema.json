@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-schema/amazon-eventbridge-scheduler-schedule-group-state-schema.json",
+  "title": "ScheduleGroupState",
+  "description": "ScheduleGroupState schema from Amazon EventBridge Scheduler",
+  "type": "string",
+  "enum": [
+    "ACTIVE",
+    "DELETING"
+  ]
+}

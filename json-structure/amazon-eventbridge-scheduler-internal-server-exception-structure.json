@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-structure/amazon-eventbridge-scheduler-internal-server-exception-structure.json",
+  "name": "InternalServerException",
+  "description": "InternalServerException schema from Amazon EventBridge Scheduler"
+}

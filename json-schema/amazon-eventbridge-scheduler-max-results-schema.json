@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-schema/amazon-eventbridge-scheduler-max-results-schema.json",
+  "title": "MaxResults",
+  "description": "MaxResults schema from Amazon EventBridge Scheduler",
+  "type": "integer",
+  "minimum": 1,
+  "maximum": 100
+}

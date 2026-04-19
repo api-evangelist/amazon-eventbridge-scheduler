@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-schema/amazon-eventbridge-scheduler-kms-key-arn-schema.json",
+  "title": "KmsKeyArn",
+  "description": "KmsKeyArn schema from Amazon EventBridge Scheduler",
+  "type": "string",
+  "pattern": "^arn:aws(-[a-z]+)?:kms:[a-z0-9\\-]+:\\d{12}:(key|alias)\\/[0-9a-zA-Z-_]*$",
+  "minLength": 1,
+  "maxLength": 2048
+}

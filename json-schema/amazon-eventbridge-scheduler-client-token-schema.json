@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-schema/amazon-eventbridge-scheduler-client-token-schema.json",
+  "title": "ClientToken",
+  "description": "ClientToken schema from Amazon EventBridge Scheduler",
+  "type": "string",
+  "pattern": "^[a-zA-Z0-9-_]+$",
+  "minLength": 1,
+  "maxLength": 64
+}

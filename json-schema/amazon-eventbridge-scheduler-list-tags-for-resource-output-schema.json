@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-schema/amazon-eventbridge-scheduler-list-tags-for-resource-output-schema.json",
+  "title": "ListTagsForResourceOutput",
+  "description": "ListTagsForResourceOutput schema from Amazon EventBridge Scheduler",
+  "type": "object",
+  "properties": {
+    "Tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagList"
+        },
+        {
+          "description": "The list of tags associated with the specified resource."
+        }
+      ]
+    }
+  }
+}

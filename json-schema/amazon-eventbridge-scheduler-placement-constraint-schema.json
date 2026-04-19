@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-schema/amazon-eventbridge-scheduler-placement-constraint-schema.json",
+  "title": "PlacementConstraint",
+  "description": "An object representing a constraint on task placement.",
+  "type": "object",
+  "properties": {
+    "expression": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PlacementConstraintExpression"
+        },
+        {
+          "description": "A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is <code>distinctInstance</code>. For more information, see <a href=\"https://docs.aws.amazon.com/latest/developerguide/cluster-query-language.html\">Cluster query language</a> in the <i>Amazon ECS Developer Guide</i>."
+        }
+      ]
+    },
+    "type": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PlacementConstraintType"
+        },
+        {
+          "description": "The type of constraint. Use <code>distinctInstance</code> to ensure that each task in a particular group is running on a different container instance. Use <code>memberOf</code> to restrict the selection to a group of valid candidates."
+        }
+      ]
+    }
+  }
+}

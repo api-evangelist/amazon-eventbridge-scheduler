@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-schema/amazon-eventbridge-scheduler-capacity-provider-schema.json",
+  "title": "CapacityProvider",
+  "description": "CapacityProvider schema from Amazon EventBridge Scheduler",
+  "type": "string",
+  "minLength": 1,
+  "maxLength": 255
+}

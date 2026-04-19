@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-schema/amazon-eventbridge-scheduler-placement-constraints-schema.json",
+  "title": "PlacementConstraints",
+  "description": "PlacementConstraints schema from Amazon EventBridge Scheduler",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/PlacementConstraint"
+  },
+  "minItems": 0,
+  "maxItems": 10
+}

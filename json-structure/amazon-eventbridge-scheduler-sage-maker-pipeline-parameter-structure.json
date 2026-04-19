@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-structure/amazon-eventbridge-scheduler-sage-maker-pipeline-parameter-structure.json",
+  "name": "SageMakerPipelineParameter",
+  "description": "The name and value pair of a parameter to use to start execution of a SageMaker Model Building Pipeline.",
+  "type": "object",
+  "properties": {
+    "Name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SageMakerPipelineParameterName"
+        },
+        {
+          "description": "Name of parameter to start execution of a SageMaker Model Building Pipeline."
+        }
+      ]
+    },
+    "Value": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SageMakerPipelineParameterValue"
+        },
+        {
+          "description": "Value of parameter to start execution of a SageMaker Model Building Pipeline."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Name",
+    "Value"
+  ]
+}

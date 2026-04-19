@@ -1,0 +1,12 @@
+{
+  "CapacityProviderStrategy": {},
+  "EnableECSManagedTags": {},
+  "EnableExecuteCommand": {},
+  "Group": {},
+  "LaunchType": {},
+  "NetworkConfiguration": {},
+  "PlacementConstraints": {},
+  "PlacementStrategy": {},
+  "PlatformVersion": {},
+  "PropagateTags": {}
+}

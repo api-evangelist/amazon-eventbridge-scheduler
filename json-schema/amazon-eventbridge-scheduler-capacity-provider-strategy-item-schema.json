@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-schema/amazon-eventbridge-scheduler-capacity-provider-strategy-item-schema.json",
+  "title": "CapacityProviderStrategyItem",
+  "description": "The details of a capacity provider strategy.",
+  "type": "object",
+  "properties": {
+    "base": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CapacityProviderStrategyItemBase"
+        },
+        {
+          "description": "The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of <code>0</code> is used."
+        }
+      ]
+    },
+    "capacityProvider": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CapacityProvider"
+        },
+        {
+          "description": "The short name of the capacity provider."
+        }
+      ]
+    },
+    "weight": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CapacityProviderStrategyItemWeight"
+        },
+        {
+          "description": "The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied."
+        }
+      ]
+    }
+  },
+  "required": [
+    "capacityProvider"
+  ]
+}

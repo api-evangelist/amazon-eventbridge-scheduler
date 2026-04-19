@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-schema/amazon-eventbridge-scheduler-list-schedule-groups-input-schema.json",
+  "title": "ListScheduleGroupsInput",
+  "description": "ListScheduleGroupsInput schema from Amazon EventBridge Scheduler",
+  "type": "object",
+  "properties": {}
+}

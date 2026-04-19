@@ -1,0 +1,115 @@
+vocabulary: 1.0.0
+info:
+  provider: Amazon EventBridge Scheduler
+  description: Unified vocabulary and taxonomy for Amazon EventBridge Scheduler APIs and capabilities
+  created: '2026-04-19'
+  modified: '2026-04-19'
+operational:
+  apis:
+  - name: Amazon EventBridge Scheduler
+    namespace: eventbridge_scheduler
+    version: '2021-06-30'
+    baseUrl: 'http://scheduler.{region}.amazonaws.com'
+    status: active
+  resources: []
+  actions:
+  - verb: get
+    httpMethod: GET
+    pattern: read
+  - verb: create
+    httpMethod: POST
+    pattern: write
+  - verb: update
+    httpMethod: PUT
+    pattern: write
+  - verb: delete
+    httpMethod: DELETE
+    pattern: destructive
+  - verb: list
+    httpMethod: GET
+    pattern: read
+  - verb: tagres
+    httpMethod: POST
+    pattern: write
+  - verb: untagr
+    httpMethod: DELETE
+    pattern: destructive
+  schemas:
+    core:
+    - name: CreateScheduleOutput
+      description: CreateScheduleOutput object
+    - name: DeadLetterConfig
+      description: 'An object that contains information about an Amazon SQS queue that EventBridge Scheduler uses as a dead-letter queue for your schedule. If specified, EventBridge Scheduler delivers failed
+        events that could not be successfully delivered to a target to the queue.'
+    - name: EcsParameters
+      description: 'The templated target type for the Amazon ECS <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html"> <code>RunTask</code> </a> API operation.'
+    - name: EventBridgeParameters
+      description: 'The templated target type for the EventBridge <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html"> <code>PutEvents</code> </a> API operation.'
+    - name: KinesisParameters
+      description: The templated target type for the Amazon Kinesis <a href="kinesis/latest/APIReference/API_PutRecord.html"> <code>PutRecord</code> </a> API operation.
+    - name: RetryPolicy
+      description: 'A <code>RetryPolicy</code> object that includes information about the retry policy settings, including the maximum age of an event, and the maximum number of times EventBridge Scheduler
+        will try to deliver the event to a target.'
+  parameters:
+    pagination:
+    - name: MaxResults
+      description: Maximum number of results to return
+    - name: NextToken
+      description: Pagination token for next page of results
+    identifiers:
+    - name: Id
+      description: Resource identifier
+    - name: Arn
+      description: Amazon Resource Name
+  enums:
+    types:
+    - 'OFF'
+    - FLEXIBLE
+    - NONE
+    - DELETE
+    - ENABLED
+    - DISABLED
+    - EC2
+    - FARGATE
+    - EXTERNAL
+    - TASK_DEFINITION
+    - distinctInstance
+    - memberOf
+    - random
+    - spread
+    - binpack
+    states:
+    - ENABLED
+    - DISABLED
+    - ACTIVE
+    - DELETING
+  authentication:
+  - name: hmac
+    type: apiKey
+capability:
+  workflows:
+  - name: Amazon EventBridge Scheduler Management
+    file: capabilities/amazon-eventbridge-scheduler-capability.yaml
+    description: Unified capability for managing Amazon EventBridge Scheduler resources. Combines Amazon EventBridge Scheduler APIs for DevOps Engineer workflows in Task Scheduling.
+    toolCount: 12
+  personas:
+  - id: developer
+    name: Application Developer
+    description: Developers building applications using Amazon EventBridge Scheduler
+  - id: operator
+    name: Cloud Operator
+    description: Operations teams managing Amazon EventBridge Scheduler infrastructure
+  domains:
+  - name: Amazon EventBridge Scheduler
+    description: Fully managed scheduling service for running tasks at scale
+  namespaces:
+  - type: consumed
+    namespace: eventbridge_scheduler
+  - type: rest
+    namespace: amazon-eventbridge-scheduler-api
+  - type: mcp
+    namespace: amazon-eventbridge-scheduler-mcp
+  binds:
+  - AWS_API_KEY
+  - AWS_REGION
+crossReference: []

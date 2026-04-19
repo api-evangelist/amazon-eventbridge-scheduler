@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-structure/amazon-eventbridge-scheduler-dead-letter-config-arn-string-structure.json",
+  "name": "DeadLetterConfigArnString",
+  "description": "DeadLetterConfigArnString schema from Amazon EventBridge Scheduler",
+  "type": "string",
+  "pattern": "^arn:aws(-[a-z]+)?:sqs:[a-z0-9\\-]+:\\d{12}:[a-zA-Z0-9\\-_]+$",
+  "minLength": 1,
+  "maxLength": 1600
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-structure/amazon-eventbridge-scheduler-launch-type-structure.json",
+  "name": "LaunchType",
+  "description": "LaunchType schema from Amazon EventBridge Scheduler",
+  "type": "string",
+  "enum": [
+    "EC2",
+    "FARGATE",
+    "EXTERNAL"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-structure/amazon-eventbridge-scheduler-target-summary-structure.json",
+  "name": "TargetSummary",
+  "description": "The details of a target.",
+  "type": "object",
+  "properties": {
+    "Arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TargetArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the target."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Arn"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-structure/amazon-eventbridge-scheduler-aws-vpc-configuration-structure.json",
+  "name": "AwsVpcConfiguration",
+  "description": "This structure specifies the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode.",
+  "type": "object",
+  "properties": {
+    "AssignPublicIp": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AssignPublicIp"
+        },
+        {
+          "description": "Specifies whether the task's elastic network interface receives a public IP address. You can specify <code>ENABLED</code> only when <code>LaunchType</code> in <code>EcsParameters</code> is set to <code>FARGATE</code>."
+        }
+      ]
+    },
+    "SecurityGroups": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SecurityGroups"
+        },
+        {
+          "description": "Specifies the security groups associated with the task. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used."
+        }
+      ]
+    },
+    "Subnets": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Subnets"
+        },
+        {
+          "description": "Specifies the subnets associated with the task. These subnets must all be in the same VPC. You can specify as many as 16 subnets."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Subnets"
+  ]
+}

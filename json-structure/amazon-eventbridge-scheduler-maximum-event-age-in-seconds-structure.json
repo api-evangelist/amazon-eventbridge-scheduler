@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-structure/amazon-eventbridge-scheduler-maximum-event-age-in-seconds-structure.json",
+  "name": "MaximumEventAgeInSeconds",
+  "description": "MaximumEventAgeInSeconds schema from Amazon EventBridge Scheduler",
+  "type": "int32",
+  "minimum": 60,
+  "maximum": 86400
+}

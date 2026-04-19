@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-schema/amazon-eventbridge-scheduler-schedule-list-schema.json",
+  "title": "ScheduleList",
+  "description": "ScheduleList schema from Amazon EventBridge Scheduler",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/ScheduleSummary"
+  }
+}

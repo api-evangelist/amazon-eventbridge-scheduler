@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-structure/amazon-eventbridge-scheduler-maximum-window-in-minutes-structure.json",
+  "name": "MaximumWindowInMinutes",
+  "description": "MaximumWindowInMinutes schema from Amazon EventBridge Scheduler",
+  "type": "int32",
+  "minimum": 1,
+  "maximum": 1440
+}

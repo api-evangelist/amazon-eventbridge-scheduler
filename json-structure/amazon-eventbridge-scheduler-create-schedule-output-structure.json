@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-structure/amazon-eventbridge-scheduler-create-schedule-output-structure.json",
+  "name": "CreateScheduleOutput",
+  "description": "CreateScheduleOutput schema from Amazon EventBridge Scheduler",
+  "type": "object",
+  "properties": {
+    "ScheduleArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ScheduleArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the schedule."
+        }
+      ]
+    }
+  },
+  "required": [
+    "ScheduleArn"
+  ]
+}

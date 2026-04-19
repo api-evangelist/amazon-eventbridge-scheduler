@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-structure/amazon-eventbridge-scheduler-list-schedules-input-structure.json",
+  "name": "ListSchedulesInput",
+  "description": "ListSchedulesInput schema from Amazon EventBridge Scheduler",
+  "type": "object",
+  "properties": {}
+}

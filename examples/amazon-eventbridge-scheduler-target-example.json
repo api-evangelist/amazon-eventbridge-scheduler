@@ -1,0 +1,12 @@
+{
+  "Arn": {},
+  "DeadLetterConfig": {},
+  "EcsParameters": {},
+  "EventBridgeParameters": {},
+  "Input": {},
+  "KinesisParameters": {},
+  "RetryPolicy": {},
+  "RoleArn": {},
+  "SageMakerPipelineParameters": {},
+  "SqsParameters": {}
+}

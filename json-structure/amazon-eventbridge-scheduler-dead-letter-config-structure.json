@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-structure/amazon-eventbridge-scheduler-dead-letter-config-structure.json",
+  "name": "DeadLetterConfig",
+  "description": "An object that contains information about an Amazon SQS queue that EventBridge Scheduler uses as a dead-letter queue for your schedule. If specified, EventBridge Scheduler delivers failed events that could not be successfully delivered to a target to the queue.",
+  "type": "object",
+  "properties": {
+    "Arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeadLetterConfigArnString"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the SQS queue specified as the destination for the dead-letter queue."
+        }
+      ]
+    }
+  }
+}

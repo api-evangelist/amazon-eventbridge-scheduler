@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-schema/amazon-eventbridge-scheduler-list-schedules-output-schema.json",
+  "title": "ListSchedulesOutput",
+  "description": "ListSchedulesOutput schema from Amazon EventBridge Scheduler",
+  "type": "object",
+  "properties": {
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "Indicates whether there are additional results to retrieve. If the value is null, there are no more results."
+        }
+      ]
+    },
+    "Schedules": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ScheduleList"
+        },
+        {
+          "description": "The schedules that match the specified criteria."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Schedules"
+  ]
+}

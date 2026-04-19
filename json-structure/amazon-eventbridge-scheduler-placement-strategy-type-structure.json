@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-structure/amazon-eventbridge-scheduler-placement-strategy-type-structure.json",
+  "name": "PlacementStrategyType",
+  "description": "PlacementStrategyType schema from Amazon EventBridge Scheduler",
+  "type": "string",
+  "enum": [
+    "random",
+    "spread",
+    "binpack"
+  ]
+}

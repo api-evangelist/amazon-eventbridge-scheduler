@@ -1,0 +1,269 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "aws": "https://aws.amazon.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "AwsVpcConfiguration": "aws:AwsVpcConfiguration",
+    "AssignPublicIp": {
+      "@id": "aws:AssignPublicIp",
+      "@type": "xsd:string"
+    },
+    "SecurityGroups": {
+      "@id": "aws:SecurityGroups",
+      "@type": "xsd:string"
+    },
+    "Subnets": {
+      "@id": "aws:Subnets",
+      "@type": "xsd:string"
+    },
+    "CapacityProviderStrategyItem": "aws:CapacityProviderStrategyItem",
+    "base": {
+      "@id": "aws:base",
+      "@type": "xsd:string"
+    },
+    "capacityProvider": {
+      "@id": "aws:capacityProvider",
+      "@type": "xsd:string"
+    },
+    "weight": {
+      "@id": "aws:weight",
+      "@type": "xsd:string"
+    },
+    "CreateScheduleGroupInput": "aws:CreateScheduleGroupInput",
+    "ClientToken": {
+      "@id": "aws:ClientToken",
+      "@type": "xsd:string"
+    },
+    "Tags": {
+      "@id": "aws:Tags",
+      "@type": "xsd:string"
+    },
+    "CreateScheduleGroupOutput": "aws:CreateScheduleGroupOutput",
+    "ScheduleGroupArn": {
+      "@id": "aws:ScheduleGroupArn",
+      "@type": "xsd:string"
+    },
+    "CreateScheduleInput": "aws:CreateScheduleInput",
+    "ActionAfterCompletion": {
+      "@id": "aws:ActionAfterCompletion",
+      "@type": "xsd:string"
+    },
+    "Description": {
+      "@id": "aws:Description",
+      "@type": "xsd:string"
+    },
+    "EndDate": {
+      "@id": "aws:EndDate",
+      "@type": "xsd:string"
+    },
+    "FlexibleTimeWindow": "aws:FlexibleTimeWindow",
+    "GroupName": {
+      "@id": "aws:GroupName",
+      "@type": "xsd:string"
+    },
+    "KmsKeyArn": {
+      "@id": "aws:KmsKeyArn",
+      "@type": "xsd:string"
+    },
+    "ScheduleExpression": {
+      "@id": "aws:ScheduleExpression",
+      "@type": "xsd:string"
+    },
+    "ScheduleExpressionTimezone": {
+      "@id": "aws:ScheduleExpressionTimezone",
+      "@type": "xsd:string"
+    },
+    "StartDate": {
+      "@id": "aws:StartDate",
+      "@type": "xsd:string"
+    },
+    "State": {
+      "@id": "aws:State",
+      "@type": "xsd:string"
+    },
+    "Target": "aws:Target",
+    "CreateScheduleOutput": "aws:CreateScheduleOutput",
+    "ScheduleArn": {
+      "@id": "aws:ScheduleArn",
+      "@type": "xsd:string"
+    },
+    "DeadLetterConfig": "aws:DeadLetterConfig",
+    "Arn": {
+      "@id": "aws:Arn",
+      "@type": "xsd:string"
+    },
+    "DeleteScheduleGroupInput": "aws:DeleteScheduleGroupInput",
+    "DeleteScheduleGroupOutput": "aws:DeleteScheduleGroupOutput",
+    "DeleteScheduleInput": "aws:DeleteScheduleInput",
+    "DeleteScheduleOutput": "aws:DeleteScheduleOutput",
+    "EcsParameters": "aws:EcsParameters",
+    "CapacityProviderStrategy": {
+      "@id": "aws:CapacityProviderStrategy",
+      "@type": "xsd:string"
+    },
+    "EnableECSManagedTags": {
+      "@id": "aws:EnableECSManagedTags",
+      "@type": "xsd:string"
+    },
+    "EnableExecuteCommand": {
+      "@id": "aws:EnableExecuteCommand",
+      "@type": "xsd:string"
+    },
+    "Group": {
+      "@id": "aws:Group",
+      "@type": "xsd:string"
+    },
+    "LaunchType": {
+      "@id": "aws:LaunchType",
+      "@type": "xsd:string"
+    },
+    "NetworkConfiguration": "aws:NetworkConfiguration",
+    "PlacementConstraints": {
+      "@id": "aws:PlacementConstraints",
+      "@type": "xsd:string"
+    },
+    "PlacementStrategy": "aws:PlacementStrategy",
+    "PlatformVersion": {
+      "@id": "aws:PlatformVersion",
+      "@type": "xsd:string"
+    },
+    "PropagateTags": {
+      "@id": "aws:PropagateTags",
+      "@type": "xsd:string"
+    },
+    "ReferenceId": {
+      "@id": "aws:ReferenceId",
+      "@type": "xsd:string"
+    },
+    "TaskCount": {
+      "@id": "aws:TaskCount",
+      "@type": "xsd:string"
+    },
+    "TaskDefinitionArn": {
+      "@id": "aws:TaskDefinitionArn",
+      "@type": "xsd:string"
+    },
+    "EventBridgeParameters": "aws:EventBridgeParameters",
+    "DetailType": {
+      "@id": "aws:DetailType",
+      "@type": "xsd:string"
+    },
+    "Source": {
+      "@id": "aws:Source",
+      "@type": "xsd:string"
+    },
+    "MaximumWindowInMinutes": {
+      "@id": "aws:MaximumWindowInMinutes",
+      "@type": "xsd:string"
+    },
+    "Mode": {
+      "@id": "aws:Mode",
+      "@type": "xsd:string"
+    },
+    "GetScheduleGroupInput": "aws:GetScheduleGroupInput",
+    "GetScheduleGroupOutput": "aws:GetScheduleGroupOutput",
+    "CreationDate": {
+      "@id": "aws:CreationDate",
+      "@type": "xsd:string"
+    },
+    "LastModificationDate": {
+      "@id": "aws:LastModificationDate",
+      "@type": "xsd:string"
+    },
+    "Name": {
+      "@id": "aws:Name",
+      "@type": "xsd:string"
+    },
+    "GetScheduleInput": "aws:GetScheduleInput",
+    "GetScheduleOutput": "aws:GetScheduleOutput",
+    "KinesisParameters": "aws:KinesisParameters",
+    "PartitionKey": {
+      "@id": "aws:PartitionKey",
+      "@type": "xsd:string"
+    },
+    "ListScheduleGroupsInput": "aws:ListScheduleGroupsInput",
+    "ListScheduleGroupsOutput": "aws:ListScheduleGroupsOutput",
+    "NextToken": {
+      "@id": "aws:NextToken",
+      "@type": "xsd:string"
+    },
+    "ScheduleGroups": {
+      "@id": "aws:ScheduleGroups",
+      "@type": "xsd:string"
+    },
+    "ListSchedulesInput": "aws:ListSchedulesInput",
+    "ListSchedulesOutput": "aws:ListSchedulesOutput",
+    "Schedules": {
+      "@id": "aws:Schedules",
+      "@type": "xsd:string"
+    },
+    "ListTagsForResourceInput": "aws:ListTagsForResourceInput",
+    "ListTagsForResourceOutput": "aws:ListTagsForResourceOutput",
+    "awsvpcConfiguration": {
+      "@id": "aws:awsvpcConfiguration",
+      "@type": "xsd:string"
+    },
+    "PlacementConstraint": "aws:PlacementConstraint",
+    "expression": {
+      "@id": "aws:expression",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "aws:type",
+      "@type": "xsd:string"
+    },
+    "field": {
+      "@id": "aws:field",
+      "@type": "xsd:string"
+    },
+    "RetryPolicy": "aws:RetryPolicy",
+    "MaximumEventAgeInSeconds": {
+      "@id": "aws:MaximumEventAgeInSeconds",
+      "@type": "xsd:string"
+    },
+    "MaximumRetryAttempts": {
+      "@id": "aws:MaximumRetryAttempts",
+      "@type": "xsd:string"
+    },
+    "SageMakerPipelineParameter": "aws:SageMakerPipelineParameter",
+    "Value": {
+      "@id": "aws:Value",
+      "@type": "xsd:string"
+    },
+    "SageMakerPipelineParameters": "aws:SageMakerPipelineParameters",
+    "PipelineParameterList": {
+      "@id": "aws:PipelineParameterList",
+      "@type": "xsd:string"
+    },
+    "ScheduleGroupSummary": "aws:ScheduleGroupSummary",
+    "ScheduleSummary": "aws:ScheduleSummary",
+    "SqsParameters": "aws:SqsParameters",
+    "MessageGroupId": {
+      "@id": "aws:MessageGroupId",
+      "@type": "xsd:string"
+    },
+    "TagMap": "aws:TagMap",
+    "TagResourceInput": "aws:TagResourceInput",
+    "TagResourceOutput": "aws:TagResourceOutput",
+    "Tag": "aws:Tag",
+    "Key": {
+      "@id": "aws:Key",
+      "@type": "xsd:string"
+    },
+    "Input": {
+      "@id": "aws:Input",
+      "@type": "xsd:string"
+    },
+    "RoleArn": {
+      "@id": "aws:RoleArn",
+      "@type": "xsd:string"
+    },
+    "TargetSummary": "aws:TargetSummary",
+    "UntagResourceInput": "aws:UntagResourceInput",
+    "UntagResourceOutput": "aws:UntagResourceOutput",
+    "UpdateScheduleInput": "aws:UpdateScheduleInput",
+    "UpdateScheduleOutput": "aws:UpdateScheduleOutput"
+  }
+}

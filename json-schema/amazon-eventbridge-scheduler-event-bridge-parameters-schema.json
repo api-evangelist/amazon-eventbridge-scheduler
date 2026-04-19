@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-schema/amazon-eventbridge-scheduler-event-bridge-parameters-schema.json",
+  "title": "EventBridgeParameters",
+  "description": "The templated target type for the EventBridge <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html\"> <code>PutEvents</code> </a> API operation.",
+  "type": "object",
+  "properties": {
+    "DetailType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DetailType"
+        },
+        {
+          "description": "A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail."
+        }
+      ]
+    },
+    "Source": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Source"
+        },
+        {
+          "description": "The source of the event."
+        }
+      ]
+    }
+  },
+  "required": [
+    "DetailType",
+    "Source"
+  ]
+}

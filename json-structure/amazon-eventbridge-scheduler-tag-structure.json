@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-structure/amazon-eventbridge-scheduler-tag-structure.json",
+  "name": "Tag",
+  "description": "Tag to associate with a schedule group.",
+  "type": "object",
+  "properties": {
+    "Key": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagKey"
+        },
+        {
+          "description": "The key for the tag."
+        }
+      ]
+    },
+    "Value": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagValue"
+        },
+        {
+          "description": "The value for the tag."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Key",
+    "Value"
+  ]
+}

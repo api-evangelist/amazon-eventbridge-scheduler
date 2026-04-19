@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-structure/amazon-eventbridge-scheduler-sqs-parameters-structure.json",
+  "name": "SqsParameters",
+  "description": "The templated target type for the Amazon SQS <a href=\"https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html\"> <code>SendMessage</code> </a> API operation. Contains the message group ID to use when the target is a FIFO queue. If you specify an Amazon SQS FIFO queue as a target, the queue must have content-based deduplication enabled. For more information, see <a href=\"https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html\">Using the Amazon SQS message deduplication ID</a> in the <i>Amazon SQS Developer Guide</i>. ",
+  "type": "object",
+  "properties": {
+    "MessageGroupId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MessageGroupId"
+        },
+        {
+          "description": "The FIFO message group ID to use as the target."
+        }
+      ]
+    }
+  }
+}

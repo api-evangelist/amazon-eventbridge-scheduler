@@ -1,0 +1,12 @@
+{
+  "ActionAfterCompletion": {},
+  "ClientToken": {},
+  "Description": {},
+  "EndDate": {},
+  "FlexibleTimeWindow": {},
+  "GroupName": {},
+  "KmsKeyArn": {},
+  "ScheduleExpression": {},
+  "ScheduleExpressionTimezone": {},
+  "StartDate": {}
+}

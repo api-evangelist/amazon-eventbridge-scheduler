@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-structure/amazon-eventbridge-scheduler-flexible-time-window-structure.json",
+  "name": "FlexibleTimeWindow",
+  "description": "Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.",
+  "type": "object",
+  "properties": {
+    "MaximumWindowInMinutes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaximumWindowInMinutes"
+        },
+        {
+          "description": "The maximum time window during which a schedule can be invoked."
+        }
+      ]
+    },
+    "Mode": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FlexibleTimeWindowMode"
+        },
+        {
+          "description": "Determines whether the schedule is invoked within a flexible time window."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Mode"
+  ]
+}

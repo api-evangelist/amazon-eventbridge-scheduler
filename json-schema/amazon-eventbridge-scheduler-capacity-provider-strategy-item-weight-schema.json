@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-schema/amazon-eventbridge-scheduler-capacity-provider-strategy-item-weight-schema.json",
+  "title": "CapacityProviderStrategyItemWeight",
+  "description": "CapacityProviderStrategyItemWeight schema from Amazon EventBridge Scheduler",
+  "type": "integer",
+  "minimum": 0,
+  "maximum": 1000
+}

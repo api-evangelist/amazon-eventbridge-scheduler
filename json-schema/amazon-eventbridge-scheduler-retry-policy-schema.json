@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-schema/amazon-eventbridge-scheduler-retry-policy-schema.json",
+  "title": "RetryPolicy",
+  "description": "A <code>RetryPolicy</code> object that includes information about the retry policy settings, including the maximum age of an event, and the maximum number of times EventBridge Scheduler will try to deliver the event to a target.",
+  "type": "object",
+  "properties": {
+    "MaximumEventAgeInSeconds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaximumEventAgeInSeconds"
+        },
+        {
+          "description": "The maximum amount of time, in seconds, to continue to make retry attempts."
+        }
+      ]
+    },
+    "MaximumRetryAttempts": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaximumRetryAttempts"
+        },
+        {
+          "description": "The maximum number of retry attempts to make before the request fails. Retry attempts with exponential backoff continue until either the maximum number of attempts is made or until the duration of the <code>MaximumEventAgeInSeconds</code> is reached."
+        }
+      ]
+    }
+  }
+}

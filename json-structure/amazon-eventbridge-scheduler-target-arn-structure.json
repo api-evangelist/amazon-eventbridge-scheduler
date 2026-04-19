@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-structure/amazon-eventbridge-scheduler-target-arn-structure.json",
+  "name": "TargetArn",
+  "description": "TargetArn schema from Amazon EventBridge Scheduler",
+  "type": "string",
+  "minLength": 1,
+  "maxLength": 1600
+}

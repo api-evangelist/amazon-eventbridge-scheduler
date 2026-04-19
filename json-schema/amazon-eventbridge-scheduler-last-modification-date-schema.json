@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-schema/amazon-eventbridge-scheduler-last-modification-date-schema.json",
+  "title": "LastModificationDate",
+  "description": "LastModificationDate schema from Amazon EventBridge Scheduler",
+  "type": "string",
+  "format": "date-time"
+}

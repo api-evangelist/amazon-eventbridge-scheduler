@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-structure/amazon-eventbridge-scheduler-tag-resource-arn-structure.json",
+  "name": "TagResourceArn",
+  "description": "TagResourceArn schema from Amazon EventBridge Scheduler",
+  "type": "string",
+  "pattern": "^arn:aws(-[a-z]+)?:scheduler:[a-z0-9\\-]+:\\d{12}:schedule-group\\/[0-9a-zA-Z-_.]+$",
+  "minLength": 1,
+  "maxLength": 1011
+}

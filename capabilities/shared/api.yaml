@@ -1,0 +1,474 @@
+naftiko: 1.0.0-alpha1
+info:
+  label: EventBridge Scheduler
+  description: Create, run, and manage scheduled tasks at scale
+  tags:
+  - Amazon Web Services
+  - Scheduling
+  - Serverless
+  created: '2026-04-19'
+  modified: '2026-04-19'
+binds:
+- namespace: env
+  keys:
+    AWS_API_KEY: AWS_API_KEY
+    AWS_REGION: AWS_REGION
+capability:
+  consumes:
+  - type: http
+    namespace: api
+    baseUri: 'http://scheduler.{region}.amazonaws.com'
+    description: Create, run, and manage scheduled tasks at scale
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{AWS_API_KEY}}'
+      placement: header
+    resources:
+    - name: Default
+      path: /default
+      description: Default resources
+      operations:
+      - name: GetSchedule
+        method: GET
+        description: Amazon EventBridge Scheduler GetSchedule
+        inputParameters:
+        - name: groupName
+          in: query
+          type: string
+          required: false
+          description: 'The name of the schedule group associated with this schedule. If you omit this, EventBridge Scheduler assumes that the schedule is associated with the default group.'
+        - name: Name
+          in: path
+          type: string
+          required: true
+          description: The name of the schedule to retrieve.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: CreateSchedule
+        method: POST
+        description: Amazon EventBridge Scheduler CreateSchedule
+        inputParameters:
+        - name: Name
+          in: path
+          type: string
+          required: true
+          description: The name of the schedule that you are creating.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: UpdateSchedule
+        method: PUT
+        description: Amazon EventBridge Scheduler UpdateSchedule
+        inputParameters:
+        - name: Name
+          in: path
+          type: string
+          required: true
+          description: The name of the schedule that you are updating.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: DeleteSchedule
+        method: DELETE
+        description: Amazon EventBridge Scheduler DeleteSchedule
+        inputParameters:
+        - name: clientToken
+          in: query
+          type: string
+          required: false
+          description: ' Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token, EventBridge Scheduler uses a randomly generated token
+            for the request to ensure idempotency. '
+        - name: groupName
+          in: query
+          type: string
+          required: false
+          description: 'The name of the schedule group associated with this schedule. If you omit this, the default schedule group is used.'
+        - name: Name
+          in: path
+          type: string
+          required: true
+          description: The name of the schedule to delete.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: GetScheduleGroup
+        method: GET
+        description: Amazon EventBridge Scheduler GetScheduleGroup
+        inputParameters:
+        - name: Name
+          in: path
+          type: string
+          required: true
+          description: The name of the schedule group to retrieve.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: CreateScheduleGroup
+        method: POST
+        description: Amazon EventBridge Scheduler CreateScheduleGroup
+        inputParameters:
+        - name: Name
+          in: path
+          type: string
+          required: true
+          description: The name of the schedule group that you are creating.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: DeleteScheduleGroup
+        method: DELETE
+        description: Amazon EventBridge Scheduler DeleteScheduleGroup
+        inputParameters:
+        - name: clientToken
+          in: query
+          type: string
+          required: false
+          description: ' Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token, EventBridge Scheduler uses a randomly generated token
+            for the request to ensure idempotency. '
+        - name: Name
+          in: path
+          type: string
+          required: true
+          description: The name of the schedule group to delete.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: ListScheduleGroups
+        method: GET
+        description: Amazon EventBridge Scheduler ListScheduleGroups
+        inputParameters:
+        - name: MaxResults
+          in: query
+          type: integer
+          required: false
+          description: 'If specified, limits the number of results returned by this operation. The operation also returns a <code>NextToken</code> which you can use in a subsequent operation to retrieve
+            the next set of results.'
+        - name: NamePrefix
+          in: query
+          type: string
+          required: false
+          description: The name prefix that you can use to return a filtered list of your schedule groups.
+        - name: NextToken
+          in: query
+          type: string
+          required: false
+          description: The token returned by a previous call to retrieve the next set of results.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: ListSchedules
+        method: GET
+        description: Amazon EventBridge Scheduler ListSchedules
+        inputParameters:
+        - name: ScheduleGroup
+          in: query
+          type: string
+          required: false
+          description: 'If specified, only lists the schedules whose associated schedule group matches the given filter.'
+        - name: MaxResults
+          in: query
+          type: integer
+          required: false
+          description: 'If specified, limits the number of results returned by this operation. The operation also returns a <code>NextToken</code> which you can use in a subsequent operation to retrieve
+            the next set of results.'
+        - name: NamePrefix
+          in: query
+          type: string
+          required: false
+          description: Schedule name prefix to return the filtered list of resources.
+        - name: NextToken
+          in: query
+          type: string
+          required: false
+          description: The token returned by a previous call to retrieve the next set of results.
+        - name: State
+          in: query
+          type: string
+          required: false
+          description: 'If specified, only lists the schedules whose current state matches the given filter.'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: ListTagsForResource
+        method: GET
+        description: Amazon EventBridge Scheduler ListTagsForResource
+        inputParameters:
+        - name: ResourceArn
+          in: path
+          type: string
+          required: true
+          description: The ARN of the EventBridge Scheduler resource for which you want to view tags.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: TagResource
+        method: POST
+        description: Amazon EventBridge Scheduler TagResource
+        inputParameters:
+        - name: ResourceArn
+          in: path
+          type: string
+          required: true
+          description: The Amazon Resource Name (ARN) of the schedule group that you are adding tags to.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: UntagResource
+        method: DELETE
+        description: Amazon EventBridge Scheduler UntagResource
+        inputParameters:
+        - name: ResourceArn
+          in: path
+          type: string
+          required: true
+          description: The Amazon Resource Name (ARN) of the schedule group from which you are removing tags.
+        - name: TagKeys
+          in: query
+          type: array
+          required: true
+          description: The list of tag keys to remove from the resource.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8094
+    namespace: api-api
+    resources:
+    - path: /v1/GetSchedule
+      name: GetSchedule
+      description: Amazon EventBridge Scheduler GetSchedule
+      operations:
+      - method: GET
+        name: GetSchedule
+        description: Amazon EventBridge Scheduler GetSchedule
+        call: api.GetSchedule
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/CreateSchedule
+      name: CreateSchedule
+      description: Amazon EventBridge Scheduler CreateSchedule
+      operations:
+      - method: POST
+        name: CreateSchedule
+        description: Amazon EventBridge Scheduler CreateSchedule
+        call: api.CreateSchedule
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/UpdateSchedule
+      name: UpdateSchedule
+      description: Amazon EventBridge Scheduler UpdateSchedule
+      operations:
+      - method: PUT
+        name: UpdateSchedule
+        description: Amazon EventBridge Scheduler UpdateSchedule
+        call: api.UpdateSchedule
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/DeleteSchedule
+      name: DeleteSchedule
+      description: Amazon EventBridge Scheduler DeleteSchedule
+      operations:
+      - method: DELETE
+        name: DeleteSchedule
+        description: Amazon EventBridge Scheduler DeleteSchedule
+        call: api.DeleteSchedule
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/GetScheduleGroup
+      name: GetScheduleGroup
+      description: Amazon EventBridge Scheduler GetScheduleGroup
+      operations:
+      - method: GET
+        name: GetScheduleGroup
+        description: Amazon EventBridge Scheduler GetScheduleGroup
+        call: api.GetScheduleGroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/CreateScheduleGroup
+      name: CreateScheduleGroup
+      description: Amazon EventBridge Scheduler CreateScheduleGroup
+      operations:
+      - method: POST
+        name: CreateScheduleGroup
+        description: Amazon EventBridge Scheduler CreateScheduleGroup
+        call: api.CreateScheduleGroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/DeleteScheduleGroup
+      name: DeleteScheduleGroup
+      description: Amazon EventBridge Scheduler DeleteScheduleGroup
+      operations:
+      - method: DELETE
+        name: DeleteScheduleGroup
+        description: Amazon EventBridge Scheduler DeleteScheduleGroup
+        call: api.DeleteScheduleGroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ListScheduleGroups
+      name: ListScheduleGroups
+      description: Amazon EventBridge Scheduler ListScheduleGroups
+      operations:
+      - method: GET
+        name: ListScheduleGroups
+        description: Amazon EventBridge Scheduler ListScheduleGroups
+        call: api.ListScheduleGroups
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ListSchedules
+      name: ListSchedules
+      description: Amazon EventBridge Scheduler ListSchedules
+      operations:
+      - method: GET
+        name: ListSchedules
+        description: Amazon EventBridge Scheduler ListSchedules
+        call: api.ListSchedules
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ListTagsForResource
+      name: ListTagsForResource
+      description: Amazon EventBridge Scheduler ListTagsForResource
+      operations:
+      - method: GET
+        name: ListTagsForResource
+        description: Amazon EventBridge Scheduler ListTagsForResource
+        call: api.ListTagsForResource
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9104
+    namespace: api-mcp
+    transport: http
+    tools:
+    - name: GetSchedule
+      description: Amazon EventBridge Scheduler GetSchedule
+      hints:
+        readOnly: true
+      call: api.GetSchedule
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: CreateSchedule
+      description: Amazon EventBridge Scheduler CreateSchedule
+      hints:
+        readOnly: false
+      call: api.CreateSchedule
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: UpdateSchedule
+      description: Amazon EventBridge Scheduler UpdateSchedule
+      hints:
+        readOnly: false
+      call: api.UpdateSchedule
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: DeleteSchedule
+      description: Amazon EventBridge Scheduler DeleteSchedule
+      hints:
+        readOnly: false
+      call: api.DeleteSchedule
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: GetScheduleGroup
+      description: Amazon EventBridge Scheduler GetScheduleGroup
+      hints:
+        readOnly: true
+      call: api.GetScheduleGroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: CreateScheduleGroup
+      description: Amazon EventBridge Scheduler CreateScheduleGroup
+      hints:
+        readOnly: false
+      call: api.CreateScheduleGroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: DeleteScheduleGroup
+      description: Amazon EventBridge Scheduler DeleteScheduleGroup
+      hints:
+        readOnly: false
+      call: api.DeleteScheduleGroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ListScheduleGroups
+      description: Amazon EventBridge Scheduler ListScheduleGroups
+      hints:
+        readOnly: true
+      call: api.ListScheduleGroups
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ListSchedules
+      description: Amazon EventBridge Scheduler ListSchedules
+      hints:
+        readOnly: true
+      call: api.ListSchedules
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: ListTagsForResource
+      description: Amazon EventBridge Scheduler ListTagsForResource
+      hints:
+        readOnly: true
+      call: api.ListTagsForResource
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: TagResource
+      description: Amazon EventBridge Scheduler TagResource
+      hints:
+        readOnly: false
+      call: api.TagResource
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: UntagResource
+      description: Amazon EventBridge Scheduler UntagResource
+      hints:
+        readOnly: false
+      call: api.UntagResource
+      outputParameters:
+      - type: object
+        mapping: $.

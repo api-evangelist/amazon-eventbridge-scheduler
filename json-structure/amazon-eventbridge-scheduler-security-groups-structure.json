@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-structure/amazon-eventbridge-scheduler-security-groups-structure.json",
+  "name": "SecurityGroups",
+  "description": "SecurityGroups schema from Amazon EventBridge Scheduler",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/SecurityGroup"
+  },
+  "minItems": 1,
+  "maxItems": 5
+}

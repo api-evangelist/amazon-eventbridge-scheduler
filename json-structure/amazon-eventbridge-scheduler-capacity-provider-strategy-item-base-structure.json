@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-structure/amazon-eventbridge-scheduler-capacity-provider-strategy-item-base-structure.json",
+  "name": "CapacityProviderStrategyItemBase",
+  "description": "CapacityProviderStrategyItemBase schema from Amazon EventBridge Scheduler",
+  "type": "int32",
+  "minimum": 0,
+  "maximum": 100000
+}

@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-schema/amazon-eventbridge-scheduler-maximum-event-age-in-seconds-schema.json",
+  "title": "MaximumEventAgeInSeconds",
+  "description": "MaximumEventAgeInSeconds schema from Amazon EventBridge Scheduler",
+  "type": "integer",
+  "minimum": 60,
+  "maximum": 86400
+}

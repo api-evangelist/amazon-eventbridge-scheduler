@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-schema/amazon-eventbridge-scheduler-enable-ecs-managed-tags-schema.json",
+  "title": "EnableECSManagedTags",
+  "description": "EnableECSManagedTags schema from Amazon EventBridge Scheduler",
+  "type": "boolean"
+}

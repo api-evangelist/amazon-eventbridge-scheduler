@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-eventbridge-scheduler/refs/heads/main/json-structure/amazon-eventbridge-scheduler-get-schedule-group-output-structure.json",
+  "name": "GetScheduleGroupOutput",
+  "description": "GetScheduleGroupOutput schema from Amazon EventBridge Scheduler",
+  "type": "object",
+  "properties": {
+    "Arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ScheduleGroupArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the schedule group."
+        }
+      ]
+    },
+    "CreationDate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreationDate"
+        },
+        {
+          "description": "The time at which the schedule group was created."
+        }
+      ]
+    },
+    "LastModificationDate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LastModificationDate"
+        },
+        {
+          "description": "The time at which the schedule group was last modified."
+        }
+      ]
+    },
+    "Name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ScheduleGroupName"
+        },
+        {
+          "description": "The name of the schedule group."
+        }
+      ]
+    },
+    "State": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ScheduleGroupState"
+        },
+        {
+          "description": "Specifies the state of the schedule group."
+        }
+      ]
+    }
+  }
+}

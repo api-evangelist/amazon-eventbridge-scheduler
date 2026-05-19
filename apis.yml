@@ -1,10 +1,11 @@
 name: Amazon EventBridge Scheduler
-description: Amazon EventBridge Scheduler is a fully managed, serverless scheduler that enables you to create, run, and manage tasks from one central, managed service. With EventBridge Scheduler, you 
-  can create millions of schedules using cron and rate expressions.
+description: Amazon EventBridge Scheduler is a fully managed, serverless scheduler that enables you to create, run, and manage
+  tasks from one central, managed service. With EventBridge Scheduler, you can create millions of schedules using cron and
+  rate expressions.
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
 url: https://aws.amazon.com/eventbridge/scheduler/
 created: '2024-01-15'
-modified: '2026-04-19'
+modified: '2026-05-19'
 specificationVersion: '0.19'
 tags:
 - Amazon Web Services
@@ -15,7 +16,8 @@ tags:
 - Serverless
 apis:
 - name: Amazon EventBridge Scheduler API
-  description: API for creating, updating, and managing scheduled tasks using cron expressions, rate expressions, and one-time schedules at scale.
+  description: API for creating, updating, and managing scheduled tasks using cron expressions, rate expressions, and one-time
+    schedules at scale.
   humanURL: https://aws.amazon.com/eventbridge/scheduler/
   baseURL: https://scheduler.amazonaws.com
   tags:
@@ -44,6 +46,8 @@ apis:
     url: json-schema/amazon-eventbridge-scheduler-aws-vpc-configuration-schema.json
   - type: JSONLD
     url: json-ld/amazon-eventbridge-scheduler-context.jsonld
+  - type: NaftikoCapability
+    url: capabilities/amazon-eventbridge-scheduler.yaml
 common:
 - type: Portal
   url: https://aws.amazon.com/
@@ -85,10 +89,6 @@ common:
   url: https://aws.amazon.com/contact-us/
 - type: SpectralRules
   url: rules/amazon-eventbridge-scheduler-spectral-rules.yml
-- type: NaftikoCapability
-  url: capabilities/amazon-eventbridge-scheduler-capability.yaml
-- type: NaftikoCapability
-  url: capabilities/shared/api.yaml
 - type: Vocabulary
   url: vocabulary/amazon-eventbridge-scheduler-vocabulary.yaml
 - type: Features

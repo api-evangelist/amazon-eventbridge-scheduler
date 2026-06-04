@@ -1,0 +1,79 @@
+arazzo: 1.0.1
+info:
+  title: EventBridge Scheduler Untag Schedule Group
+  summary: Resolve a schedule group ARN, remove tag keys, then list remaining tags.
+  description: >-
+    Resolves a schedule group to its ARN, removes a set of tag keys from the
+    group, and then lists the remaining tags to confirm the removal. Tag removal
+    only applies to schedule groups in EventBridge Scheduler, so the group ARN is
+    used as the resource throughout. Every step spells out its request inline so
+    the flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: schedulerApi
+  url: ../openapi/amazon-eventbridge-scheduler-openapi.yml
+  type: openapi
+workflows:
+- workflowId: untag-schedule-group
+  summary: Get a schedule group ARN, untag it by keys, then list remaining tags.
+  description: >-
+    Retrieves a schedule group to obtain its ARN, removes the supplied tag keys
+    from the group, and reads the tags back to confirm which tags remain.
+  inputs:
+    type: object
+    required:
+    - groupName
+    - tagKeys
+    properties:
+      groupName:
+        type: string
+        description: The name of the schedule group to resolve and untag.
+      tagKeys:
+        type: array
+        description: The list of tag keys to remove from the schedule group.
+        items:
+          type: string
+  steps:
+  - stepId: getGroup
+    description: >-
+      Retrieve the schedule group to capture its ARN, which is required to
+      address the tagging resource.
+    operationId: GetScheduleGroup
+    parameters:
+    - name: Name
+      in: path
+      value: $inputs.groupName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      groupArn: $response.body#/Arn
+  - stepId: untagGroup
+    description: >-
+      Remove the supplied tag keys from the schedule group identified by its ARN.
+    operationId: UntagResource
+    parameters:
+    - name: ResourceArn
+      in: path
+      value: $steps.getGroup.outputs.groupArn
+    - name: TagKeys
+      in: query
+      value: $inputs.tagKeys
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: listTags
+    description: >-
+      List the tags still associated with the schedule group to confirm the
+      requested keys were removed.
+    operationId: ListTagsForResource
+    parameters:
+    - name: ResourceArn
+      in: path
+      value: $steps.getGroup.outputs.groupArn
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      remainingTags: $response.body#/Tags
+  outputs:
+    groupArn: $steps.getGroup.outputs.groupArn
+    remainingTags: $steps.listTags.outputs.remainingTags

@@ -1,0 +1,104 @@
+arazzo: 1.0.1
+info:
+  title: EventBridge Scheduler List Inspect And Delete Schedule
+  summary: List schedules in a group, inspect the first match, then delete it.
+  description: >-
+    Lists the schedules in a group filtered by a name prefix, then branches on
+    whether any schedules were returned. When a schedule is found the flow
+    retrieves its full detail and deletes it; when the list is empty the flow
+    ends without making any changes. Every step spells out its request inline so
+    the flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: schedulerApi
+  url: ../openapi/amazon-eventbridge-scheduler-openapi.yml
+  type: openapi
+workflows:
+- workflowId: list-inspect-delete-schedule
+  summary: List schedules in a group, get the first one, then delete it.
+  description: >-
+    Filters schedules by group and name prefix, and when at least one schedule
+    matches, retrieves its detail and deletes it. When no schedule matches the
+    flow ends cleanly.
+  inputs:
+    type: object
+    required:
+    - groupName
+    properties:
+      groupName:
+        type: string
+        description: The schedule group whose schedules are listed and from which the match is deleted.
+      namePrefix:
+        type: string
+        description: Schedule name prefix used to filter the listing.
+      maxResults:
+        type: integer
+        description: The maximum number of schedules to return in the listing.
+  steps:
+  - stepId: listSchedules
+    description: >-
+      List the schedules associated with the supplied group, optionally filtered
+      by a name prefix, returning at most the requested number of results.
+    operationId: ListSchedules
+    parameters:
+    - name: ScheduleGroup
+      in: query
+      value: $inputs.groupName
+    - name: NamePrefix
+      in: query
+      value: $inputs.namePrefix
+    - name: MaxResults
+      in: query
+      value: $inputs.maxResults
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      matchedScheduleName: $response.body#/Schedules/0/Name
+      schedules: $response.body#/Schedules
+    onSuccess:
+    - name: scheduleFound
+      type: goto
+      stepId: getSchedule
+      criteria:
+      - context: $response.body
+        condition: $.Schedules.length > 0
+        type: jsonpath
+    - name: noSchedules
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.Schedules.length == 0
+        type: jsonpath
+  - stepId: getSchedule
+    description: >-
+      Retrieve the full detail of the first matched schedule before deleting it.
+    operationId: GetSchedule
+    parameters:
+    - name: Name
+      in: path
+      value: $steps.listSchedules.outputs.matchedScheduleName
+    - name: groupName
+      in: query
+      value: $inputs.groupName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      scheduleName: $response.body#/Name
+      arn: $response.body#/Arn
+  - stepId: deleteSchedule
+    description: >-
+      Delete the matched schedule from the group.
+    operationId: DeleteSchedule
+    parameters:
+    - name: Name
+      in: path
+      value: $steps.getSchedule.outputs.scheduleName
+    - name: groupName
+      in: query
+      value: $inputs.groupName
+    successCriteria:
+    - condition: $statusCode == 200
+  outputs:
+    deletedScheduleName: $steps.getSchedule.outputs.scheduleName
+    deletedScheduleArn: $steps.getSchedule.outputs.arn

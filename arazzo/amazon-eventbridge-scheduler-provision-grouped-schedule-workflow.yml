@@ -1,0 +1,119 @@
+arazzo: 1.0.1
+info:
+  title: EventBridge Scheduler Provision Grouped Schedule
+  summary: Create a schedule group, add a schedule to it, then read the schedule back.
+  description: >-
+    Stands up an isolated schedule group, creates a recurring or one-time
+    schedule inside that group, and then retrieves the schedule to confirm it
+    was registered against the group. This is the canonical EventBridge
+    Scheduler onboarding flow: group first, schedule second, verification last.
+    Every step spells out its request inline so the flow can be read and
+    executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: schedulerApi
+  url: ../openapi/amazon-eventbridge-scheduler-openapi.yml
+  type: openapi
+workflows:
+- workflowId: provision-grouped-schedule
+  summary: Create a schedule group, create a schedule within it, then get the schedule.
+  description: >-
+    Creates a named schedule group, provisions a schedule that targets a
+    resource within that group, and reads the schedule back to confirm its
+    group association and target.
+  inputs:
+    type: object
+    required:
+    - groupName
+    - scheduleName
+    - scheduleExpression
+    - targetArn
+    - roleArn
+    properties:
+      groupName:
+        type: string
+        description: The name of the schedule group to create and associate the schedule with.
+      scheduleName:
+        type: string
+        description: The name of the schedule to create.
+      scheduleExpression:
+        type: string
+        description: The expression that defines when the schedule runs (at/rate/cron).
+      scheduleExpressionTimezone:
+        type: string
+        description: The timezone in which the scheduling expression is evaluated.
+      targetArn:
+        type: string
+        description: The Amazon Resource Name (ARN) of the schedule target.
+      roleArn:
+        type: string
+        description: The ARN of the IAM role EventBridge Scheduler uses to invoke the target.
+      description:
+        type: string
+        description: The description to assign to the schedule.
+  steps:
+  - stepId: createGroup
+    description: >-
+      Create the schedule group that the new schedule will belong to.
+    operationId: CreateScheduleGroup
+    parameters:
+    - name: Name
+      in: path
+      value: $inputs.groupName
+    requestBody:
+      contentType: application/json
+      payload:
+        Tags: []
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      scheduleGroupArn: $response.body#/ScheduleGroupArn
+  - stepId: createSchedule
+    description: >-
+      Create a schedule inside the newly created group. The schedule requires a
+      flexible time window mode, a schedule expression, and a target.
+    operationId: CreateSchedule
+    parameters:
+    - name: Name
+      in: path
+      value: $inputs.scheduleName
+    requestBody:
+      contentType: application/json
+      payload:
+        GroupName: $inputs.groupName
+        ScheduleExpression: $inputs.scheduleExpression
+        ScheduleExpressionTimezone: $inputs.scheduleExpressionTimezone
+        Description: $inputs.description
+        FlexibleTimeWindow:
+          Mode: 'OFF'
+        State: ENABLED
+        Target:
+          Arn: $inputs.targetArn
+          RoleArn: $inputs.roleArn
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      scheduleArn: $response.body#/ScheduleArn
+  - stepId: getSchedule
+    description: >-
+      Retrieve the schedule from the group to confirm it was created and is
+      associated with the expected group.
+    operationId: GetSchedule
+    parameters:
+    - name: Name
+      in: path
+      value: $inputs.scheduleName
+    - name: groupName
+      in: query
+      value: $inputs.groupName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      scheduleName: $response.body#/Name
+      groupName: $response.body#/GroupName
+      arn: $response.body#/Arn
+      state: $response.body#/State
+  outputs:
+    scheduleGroupArn: $steps.createGroup.outputs.scheduleGroupArn
+    scheduleArn: $steps.createSchedule.outputs.scheduleArn
+    state: $steps.getSchedule.outputs.state

@@ -49,6 +49,30 @@ apis:
   - type: NaftikoCapability
     url: capabilities/amazon-eventbridge-scheduler.yaml
 common:
+- type: ArazzoWorkflows
+  url: arazzo/
+  workflows:
+  - url: arazzo/amazon-eventbridge-scheduler-audit-schedule-group-tags-workflow.yml
+    name: EventBridge Scheduler Audit Schedule Group Tags
+    summary: List schedule groups, inspect the first match, then list its tags.
+  - url: arazzo/amazon-eventbridge-scheduler-create-then-update-schedule-workflow.yml
+    name: EventBridge Scheduler Create Then Update Schedule
+    summary: Create a schedule, update its expression and state, then read it back.
+  - url: arazzo/amazon-eventbridge-scheduler-list-inspect-delete-schedule-workflow.yml
+    name: EventBridge Scheduler List Inspect And Delete Schedule
+    summary: List schedules in a group, inspect the first match, then delete it.
+  - url: arazzo/amazon-eventbridge-scheduler-provision-grouped-schedule-workflow.yml
+    name: EventBridge Scheduler Provision Grouped Schedule
+    summary: Create a schedule group, add a schedule to it, then read the schedule back.
+  - url: arazzo/amazon-eventbridge-scheduler-schedule-group-lifecycle-workflow.yml
+    name: EventBridge Scheduler Schedule Group Lifecycle
+    summary: Create a schedule group, confirm it, then delete it.
+  - url: arazzo/amazon-eventbridge-scheduler-tag-schedule-group-workflow.yml
+    name: EventBridge Scheduler Tag Schedule Group
+    summary: Create a schedule group, tag it, then list its tags to confirm.
+  - url: arazzo/amazon-eventbridge-scheduler-untag-schedule-group-workflow.yml
+    name: EventBridge Scheduler Untag Schedule Group
+    summary: Resolve a schedule group ARN, remove tag keys, then list remaining tags.
 - type: Portal
   url: https://aws.amazon.com/
 - type: DeveloperPortal

@@ -1,0 +1,90 @@
+arazzo: 1.0.1
+info:
+  title: EventBridge Scheduler Tag Schedule Group
+  summary: Create a schedule group, tag it, then list its tags to confirm.
+  description: >-
+    Creates a schedule group, assigns one or more tags to the group using its
+    returned ARN, and then lists the tags on the resource to confirm they were
+    applied. Tags can only be assigned to schedule groups in EventBridge
+    Scheduler, so this flow uses the group ARN as the tagging resource. Every
+    step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: schedulerApi
+  url: ../openapi/amazon-eventbridge-scheduler-openapi.yml
+  type: openapi
+workflows:
+- workflowId: tag-schedule-group
+  summary: Create a schedule group, tag it, then list its tags.
+  description: >-
+    Provisions a schedule group, applies a set of tags to the group ARN, and
+    reads the tags back from the resource to confirm they were stored.
+  inputs:
+    type: object
+    required:
+    - groupName
+    - tags
+    properties:
+      groupName:
+        type: string
+        description: The name of the schedule group to create and tag.
+      tags:
+        type: array
+        description: The list of Key/Value tag objects to assign to the schedule group.
+        items:
+          type: object
+          properties:
+            Key:
+              type: string
+            Value:
+              type: string
+  steps:
+  - stepId: createGroup
+    description: >-
+      Create the schedule group to be tagged, capturing its ARN for the tagging
+      steps.
+    operationId: CreateScheduleGroup
+    parameters:
+    - name: Name
+      in: path
+      value: $inputs.groupName
+    requestBody:
+      contentType: application/json
+      payload:
+        Tags: []
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      scheduleGroupArn: $response.body#/ScheduleGroupArn
+  - stepId: tagGroup
+    description: >-
+      Assign the supplied tags to the schedule group using the ARN returned at
+      creation.
+    operationId: TagResource
+    parameters:
+    - name: ResourceArn
+      in: path
+      value: $steps.createGroup.outputs.scheduleGroupArn
+    requestBody:
+      contentType: application/json
+      payload:
+        Tags: $inputs.tags
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: listTags
+    description: >-
+      List the tags now associated with the schedule group to confirm they were
+      applied.
+    operationId: ListTagsForResource
+    parameters:
+    - name: ResourceArn
+      in: path
+      value: $steps.createGroup.outputs.scheduleGroupArn
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      tags: $response.body#/Tags
+  outputs:
+    scheduleGroupArn: $steps.createGroup.outputs.scheduleGroupArn
+    tags: $steps.listTags.outputs.tags

@@ -1,0 +1,77 @@
+arazzo: 1.0.1
+info:
+  title: EventBridge Scheduler Schedule Group Lifecycle
+  summary: Create a schedule group, confirm it, then delete it.
+  description: >-
+    Exercises the full lifecycle of a schedule group: create the group, retrieve
+    it to confirm it reached an active state, and then delete it. Deleting a
+    group also deletes every schedule associated with it, so this flow is a clean
+    way to provision and tear down an isolated grouping. Every step spells out
+    its request inline so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: schedulerApi
+  url: ../openapi/amazon-eventbridge-scheduler-openapi.yml
+  type: openapi
+workflows:
+- workflowId: schedule-group-lifecycle
+  summary: Create a schedule group, get it, then delete it.
+  description: >-
+    Provisions a schedule group, reads it back to confirm creation and capture
+    its state, and then removes it.
+  inputs:
+    type: object
+    required:
+    - groupName
+    properties:
+      groupName:
+        type: string
+        description: The name of the schedule group to create, confirm, and delete.
+  steps:
+  - stepId: createGroup
+    description: >-
+      Create the schedule group.
+    operationId: CreateScheduleGroup
+    parameters:
+    - name: Name
+      in: path
+      value: $inputs.groupName
+    requestBody:
+      contentType: application/json
+      payload:
+        Tags: []
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      scheduleGroupArn: $response.body#/ScheduleGroupArn
+  - stepId: getGroup
+    description: >-
+      Retrieve the schedule group to confirm it exists and capture its current
+      state before deletion.
+    operationId: GetScheduleGroup
+    parameters:
+    - name: Name
+      in: path
+      value: $inputs.groupName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      groupName: $response.body#/Name
+      groupArn: $response.body#/Arn
+      state: $response.body#/State
+  - stepId: deleteGroup
+    description: >-
+      Delete the schedule group, which also removes any schedules associated
+      with it.
+    operationId: DeleteScheduleGroup
+    parameters:
+    - name: Name
+      in: path
+      value: $inputs.groupName
+    successCriteria:
+    - condition: $statusCode == 200
+  outputs:
+    scheduleGroupArn: $steps.createGroup.outputs.scheduleGroupArn
+    deletedGroupName: $steps.getGroup.outputs.groupName
+    stateBeforeDelete: $steps.getGroup.outputs.state

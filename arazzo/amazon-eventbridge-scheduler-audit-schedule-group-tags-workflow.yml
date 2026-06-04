@@ -1,0 +1,95 @@
+arazzo: 1.0.1
+info:
+  title: EventBridge Scheduler Audit Schedule Group Tags
+  summary: List schedule groups, inspect the first match, then list its tags.
+  description: >-
+    Lists the schedule groups filtered by a name prefix and branches on whether
+    any groups were returned. When a group is found the flow retrieves its
+    detail to capture the ARN and then lists the tags attached to that group;
+    when no group matches the flow ends without further calls. Every step spells
+    out its request inline so the flow can be read and executed without opening
+    the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: schedulerApi
+  url: ../openapi/amazon-eventbridge-scheduler-openapi.yml
+  type: openapi
+workflows:
+- workflowId: audit-schedule-group-tags
+  summary: List schedule groups, get the first match, then list its tags.
+  description: >-
+    Filters schedule groups by name prefix, and when at least one group matches,
+    retrieves the group detail and reads its tags for an audit. When no group
+    matches the flow ends cleanly.
+  inputs:
+    type: object
+    properties:
+      namePrefix:
+        type: string
+        description: The name prefix used to filter the schedule group listing.
+      maxResults:
+        type: integer
+        description: The maximum number of schedule groups to return in the listing.
+  steps:
+  - stepId: listGroups
+    description: >-
+      List the schedule groups, optionally filtered by a name prefix, returning
+      at most the requested number of results.
+    operationId: ListScheduleGroups
+    parameters:
+    - name: NamePrefix
+      in: query
+      value: $inputs.namePrefix
+    - name: MaxResults
+      in: query
+      value: $inputs.maxResults
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      matchedGroupName: $response.body#/ScheduleGroups/0/Name
+      scheduleGroups: $response.body#/ScheduleGroups
+    onSuccess:
+    - name: groupFound
+      type: goto
+      stepId: getGroup
+      criteria:
+      - context: $response.body
+        condition: $.ScheduleGroups.length > 0
+        type: jsonpath
+    - name: noGroups
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.ScheduleGroups.length == 0
+        type: jsonpath
+  - stepId: getGroup
+    description: >-
+      Retrieve the first matched schedule group to capture its ARN for the tag
+      lookup.
+    operationId: GetScheduleGroup
+    parameters:
+    - name: Name
+      in: path
+      value: $steps.listGroups.outputs.matchedGroupName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      groupName: $response.body#/Name
+      groupArn: $response.body#/Arn
+      state: $response.body#/State
+  - stepId: listTags
+    description: >-
+      List the tags associated with the matched schedule group using its ARN.
+    operationId: ListTagsForResource
+    parameters:
+    - name: ResourceArn
+      in: path
+      value: $steps.getGroup.outputs.groupArn
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      tags: $response.body#/Tags
+  outputs:
+    groupName: $steps.getGroup.outputs.groupName
+    groupArn: $steps.getGroup.outputs.groupArn
+    tags: $steps.listTags.outputs.tags

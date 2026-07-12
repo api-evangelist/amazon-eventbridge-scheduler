@@ -49,6 +49,14 @@ apis:
       - type: JSONLD
         url: json-ld/amazon-eventbridge-scheduler-context.jsonld
 common:
+  - type: TrustCenter
+    url: security/amazon-eventbridge-scheduler-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/amazon-eventbridge-scheduler-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/amazon-eventbridge-scheduler-domain-security.yml
+  - type: Authentication
+    url: authentication/amazon-eventbridge-scheduler-authentication.yml
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/amazon-eventbridge-scheduler/overview
   - type: Arazzo

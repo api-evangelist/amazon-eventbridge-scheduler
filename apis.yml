@@ -3,6 +3,19 @@ description: >-
   Amazon EventBridge Scheduler is a fully managed, serverless scheduler that enables you to create, run, and manage
   tasks from one central, managed service. With EventBridge Scheduler, you can create millions of schedules using cron
   and rate expressions.
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
 url: https://aws.amazon.com/eventbridge/scheduler/
 created: '2024-01-15'
@@ -16,38 +29,91 @@ tags:
   - Scheduling
   - Serverless
 apis:
-  - name: Amazon EventBridge Scheduler API
-    description: >-
-      API for creating, updating, and managing scheduled tasks using cron expressions, rate expressions, and one-time
-      schedules at scale.
-    humanURL: https://aws.amazon.com/eventbridge/scheduler/
-    baseURL: https://scheduler.amazonaws.com
-    tags:
-      - Cron
-      - Event-Driven
-      - Scheduling
-      - Serverless
-    properties:
-      - type: Documentation
-        url: https://docs.aws.amazon.com/scheduler/latest/UserGuide/
-      - type: OpenAPI
-        url: openapi/amazon-eventbridge-scheduler-openapi.yml
-      - type: APIReference
-        url: https://docs.aws.amazon.com/scheduler/latest/APIReference/
-      - type: GettingStarted
-        url: https://aws.amazon.com/eventbridge/scheduler/
-      - type: Pricing
-        url: https://aws.amazon.com/eventbridge/pricing/
-      - type: FAQ
-        url: https://aws.amazon.com/eventbridge/faqs/
-      - type: JSONSchema
-        url: json-schema/amazon-eventbridge-scheduler-action-after-completion-schema.json
-      - type: JSONSchema
-        url: json-schema/amazon-eventbridge-scheduler-assign-public-ip-schema.json
-      - type: JSONSchema
-        url: json-schema/amazon-eventbridge-scheduler-aws-vpc-configuration-schema.json
-      - type: JSONLD
-        url: json-ld/amazon-eventbridge-scheduler-context.jsonld
+- aid: amazon-eventbridge-scheduler:amazon-eventbridge-scheduler-schedule-groups-api
+  name: Amazon EventBridge Scheduler Schedule Groups API
+  description: >-
+    The Schedule Groups API from Amazon EventBridge Scheduler — 2 operation(s) for schedule groups.
+  humanURL: https://aws.amazon.com/eventbridge/scheduler/
+  baseURL: https://scheduler.amazonaws.com
+  tags:
+  - Schedule Groups
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-eventbridge-scheduler-schedule-groups-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/scheduler/latest/UserGuide/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/scheduler/latest/APIReference/
+  - type: GettingStarted
+    url: https://aws.amazon.com/eventbridge/scheduler/
+  - type: Pricing
+    url: https://aws.amazon.com/eventbridge/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/eventbridge/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-eventbridge-scheduler-action-after-completion-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-eventbridge-scheduler-assign-public-ip-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-eventbridge-scheduler-aws-vpc-configuration-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-eventbridge-scheduler-context.jsonld
+- aid: amazon-eventbridge-scheduler:amazon-eventbridge-scheduler-schedules-api
+  name: Amazon EventBridge Scheduler Schedules API
+  description: The Schedules API from Amazon EventBridge Scheduler — 2 operation(s) for schedules.
+  humanURL: https://aws.amazon.com/eventbridge/scheduler/
+  baseURL: https://scheduler.amazonaws.com
+  tags:
+  - Schedules
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-eventbridge-scheduler-schedules-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/scheduler/latest/UserGuide/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/scheduler/latest/APIReference/
+  - type: GettingStarted
+    url: https://aws.amazon.com/eventbridge/scheduler/
+  - type: Pricing
+    url: https://aws.amazon.com/eventbridge/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/eventbridge/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-eventbridge-scheduler-action-after-completion-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-eventbridge-scheduler-assign-public-ip-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-eventbridge-scheduler-aws-vpc-configuration-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-eventbridge-scheduler-context.jsonld
+- aid: amazon-eventbridge-scheduler:amazon-eventbridge-scheduler-tags-api
+  name: Amazon EventBridge Scheduler Tags API
+  description: The Tags API from Amazon EventBridge Scheduler — 2 operation(s) for tags.
+  humanURL: https://aws.amazon.com/eventbridge/scheduler/
+  baseURL: https://scheduler.amazonaws.com
+  tags:
+  - Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-eventbridge-scheduler-tags-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/scheduler/latest/UserGuide/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/scheduler/latest/APIReference/
+  - type: GettingStarted
+    url: https://aws.amazon.com/eventbridge/scheduler/
+  - type: Pricing
+    url: https://aws.amazon.com/eventbridge/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/eventbridge/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-eventbridge-scheduler-action-after-completion-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-eventbridge-scheduler-assign-public-ip-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-eventbridge-scheduler-aws-vpc-configuration-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-eventbridge-scheduler-context.jsonld
 common:
   - type: AgenticAccess
     url: agentic-access/amazon-eventbridge-scheduler-agentic-access.yml

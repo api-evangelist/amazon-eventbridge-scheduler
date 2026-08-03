@@ -1,0 +1,18 @@
+{
+  "provider": "amazon-eventbridge-scheduler",
+  "sources": [
+    "amazon-eventbridge-scheduler-schedule-groups-api-openapi.yml",
+    "amazon-eventbridge-scheduler-schedules-api-openapi.yml",
+    "amazon-eventbridge-scheduler-tags-api-openapi.yml"
+  ],
+  "outputs": [
+    "amazon-eventbridge-scheduler-schedule-groups-api-openapi.yml",
+    "amazon-eventbridge-scheduler-schedules-api-openapi.yml",
+    "amazon-eventbridge-scheduler-tags-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

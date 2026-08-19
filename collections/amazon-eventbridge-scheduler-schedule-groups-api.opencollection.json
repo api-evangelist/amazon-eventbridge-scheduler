@@ -1,0 +1,244 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon EventBridge Scheduler Schedule Groups API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Schedule Groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon EventBridge Scheduler GetScheduleGroup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://scheduler.{region}.amazonaws.com/schedule-groups/:Name",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "Name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the schedule group to retrieve."
+              }
+            ]
+          },
+          "docs": "Retrieves the specified schedule group."
+        },
+        {
+          "info": {
+            "name": "Amazon EventBridge Scheduler CreateScheduleGroup",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://scheduler.{region}.amazonaws.com/schedule-groups/:Name",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "Name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the schedule group that you are creating."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates the specified schedule group."
+        },
+        {
+          "info": {
+            "name": "Amazon EventBridge Scheduler DeleteScheduleGroup",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://scheduler.{region}.amazonaws.com/schedule-groups/:Name",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clientToken",
+                "value": "",
+                "type": "query",
+                "description": " Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token, EventBridge Scheduler uses a randomly generated token for the request to ensure idempotency. "
+              },
+              {
+                "name": "Name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the schedule group to delete."
+              }
+            ]
+          },
+          "docs": "<p>Deletes the specified schedule group. Deleting a schedule group results in EventBridge Scheduler deleting all schedules associated with the group. When you delete a group, it remains in a <code>DELETING</code> state until all of its associated schedules are deleted. Schedules associated with the group that are set to run while the schedule group is in the process of being deleted might continue to invoke their targets until the schedule group and its associated schedules are deleted.</p> <not"
+        },
+        {
+          "info": {
+            "name": "Amazon EventBridge Scheduler ListScheduleGroups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://scheduler.{region}.amazonaws.com/schedule-groups",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "MaxResults",
+                "value": "",
+                "type": "query",
+                "description": "If specified, limits the number of results returned by this operation. The operation also returns a <code>NextToken</code> which you can use in a subsequent operation to retrieve the next set of results."
+              },
+              {
+                "name": "NamePrefix",
+                "value": "",
+                "type": "query",
+                "description": "The name prefix that you can use to return a filtered list of your schedule groups."
+              },
+              {
+                "name": "NextToken",
+                "value": "",
+                "type": "query",
+                "description": "The token returned by a previous call to retrieve the next set of results."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of your schedule groups."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

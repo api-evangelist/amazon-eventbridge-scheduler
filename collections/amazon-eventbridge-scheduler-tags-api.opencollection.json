@@ -1,0 +1,183 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon EventBridge Scheduler Schedule Groups Tags API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tags",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon EventBridge Scheduler ListTagsForResource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://scheduler.{region}.amazonaws.com/tags/:ResourceArn",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "ResourceArn",
+                "value": "",
+                "type": "path",
+                "description": "The ARN of the EventBridge Scheduler resource for which you want to view tags."
+              }
+            ]
+          },
+          "docs": "Lists the tags associated with the Scheduler resource."
+        },
+        {
+          "info": {
+            "name": "Amazon EventBridge Scheduler TagResource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://scheduler.{region}.amazonaws.com/tags/:ResourceArn",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "ResourceArn",
+                "value": "",
+                "type": "path",
+                "description": "The Amazon Resource Name (ARN) of the schedule group that you are adding tags to."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Assigns one or more tags (key-value pairs) to the specified EventBridge Scheduler resource. You can only assign tags to schedule groups."
+        },
+        {
+          "info": {
+            "name": "Amazon EventBridge Scheduler UntagResource",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://scheduler.{region}.amazonaws.com/tags/:ResourceArn#TagKeys",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "ResourceArn",
+                "value": "",
+                "type": "path",
+                "description": "The Amazon Resource Name (ARN) of the schedule group from which you are removing tags."
+              },
+              {
+                "name": "TagKeys",
+                "value": "",
+                "type": "query",
+                "description": "The list of tag keys to remove from the resource."
+              }
+            ]
+          },
+          "docs": "Removes one or more tags from the specified EventBridge Scheduler schedule group."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

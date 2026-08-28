@@ -11,8 +11,11 @@ info:
     executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: schedulerApi
-  url: ../openapi/amazon-eventbridge-scheduler-openapi.yml
+- name: scheduleGroupsApi
+  url: ../openapi/amazon-eventbridge-scheduler-schedule-groups-api-openapi.yml
+  type: openapi
+- name: schedulesApi
+  url: ../openapi/amazon-eventbridge-scheduler-schedules-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: provision-grouped-schedule

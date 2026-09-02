@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
   title: Amazon EventBridge Scheduler Schedule Groups API
   description: ' Amazon EventBridge Scheduler is a serverless scheduler that allows you to create, run, and manage tasks from one central, managed service. EventBridge Scheduler delivers your tasks reliably, with built-in mechanisms that adjust your schedules based on the availability of downstream targets. The following reference lists the available API actions, and data types for EventBridge Scheduler. '
@@ -504,60 +504,74 @@ paths:
       tags:
       - Schedule Groups
 components:
-  parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    ScheduleGroupList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ScheduleGroupSummary'
-    InternalServerException: {}
+    ScheduleGroupArn:
+      type: string
+      pattern: ^arn:aws(-[a-z]+)?:scheduler:[a-z0-9\-]+:\d{12}:schedule-group\/[0-9a-zA-Z-_.]+$
+      minLength: 1
+      maxLength: 1224
     ThrottlingException: {}
     TagValue:
       type: string
       minLength: 1
       maxLength: 256
+    DeleteScheduleGroupOutput:
+      type: object
+      properties: {}
+    ConflictException: {}
+    CreateScheduleGroupOutput:
+      type: object
+      required:
+      - ScheduleGroupArn
+      properties:
+        ScheduleGroupArn:
+          allOf:
+          - $ref: '#/components/schemas/ScheduleGroupArn'
+          - description: The Amazon Resource Name (ARN) of the schedule group.
+    NextToken:
+      type: string
+      minLength: 1
+      maxLength: 2048
+    ListScheduleGroupsOutput:
+      type: object
+      required:
+      - ScheduleGroups
+      properties:
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: Indicates whether there are additional results to retrieve. If the value is null, there are no more results.
+        ScheduleGroups:
+          allOf:
+          - $ref: '#/components/schemas/ScheduleGroupList'
+          - description: The schedule groups that match the specified criteria.
+    TagKey:
+      type: string
+      minLength: 1
+      maxLength: 128
+    GetScheduleGroupOutput:
+      type: object
+      properties:
+        Arn:
+          allOf:
+          - $ref: '#/components/schemas/ScheduleGroupArn'
+          - description: The Amazon Resource Name (ARN) of the schedule group.
+        CreationDate:
+          allOf:
+          - $ref: '#/components/schemas/CreationDate'
+          - description: The time at which the schedule group was created.
+        LastModificationDate:
+          allOf:
+          - $ref: '#/components/schemas/LastModificationDate'
+          - description: The time at which the schedule group was last modified.
+        Name:
+          allOf:
+          - $ref: '#/components/schemas/ScheduleGroupName'
+          - description: The name of the schedule group.
+        State:
+          allOf:
+          - $ref: '#/components/schemas/ScheduleGroupState'
+          - description: Specifies the state of the schedule group.
     Tag:
       type: object
       required:
@@ -573,22 +587,10 @@ components:
           - $ref: '#/components/schemas/TagValue'
           - description: The value for the tag.
       description: Tag to associate with a schedule group.
-    ConflictException: {}
     CreationDate:
       type: string
       format: date-time
-    LastModificationDate:
-      type: string
-      format: date-time
-    ScheduleGroupArn:
-      type: string
-      pattern: ^arn:aws(-[a-z]+)?:scheduler:[a-z0-9\-]+:\d{12}:schedule-group\/[0-9a-zA-Z-_.]+$
-      minLength: 1
-      maxLength: 1224
-    ServiceQuotaExceededException: {}
-    DeleteScheduleGroupOutput:
-      type: object
-      properties: {}
+    InternalServerException: {}
     ScheduleGroupSummary:
       type: object
       properties:
@@ -619,65 +621,63 @@ components:
       - ACTIVE
       - DELETING
     ResourceNotFoundException: {}
-    ListScheduleGroupsOutput:
-      type: object
-      required:
-      - ScheduleGroups
-      properties:
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: Indicates whether there are additional results to retrieve. If the value is null, there are no more results.
-        ScheduleGroups:
-          allOf:
-          - $ref: '#/components/schemas/ScheduleGroupList'
-          - description: The schedule groups that match the specified criteria.
+    LastModificationDate:
+      type: string
+      format: date-time
     ScheduleGroupName:
       type: string
       pattern: ^[0-9a-zA-Z-_.]+$
       minLength: 1
       maxLength: 64
-    NextToken:
-      type: string
-      minLength: 1
-      maxLength: 2048
-    GetScheduleGroupOutput:
-      type: object
-      properties:
-        Arn:
-          allOf:
-          - $ref: '#/components/schemas/ScheduleGroupArn'
-          - description: The Amazon Resource Name (ARN) of the schedule group.
-        CreationDate:
-          allOf:
-          - $ref: '#/components/schemas/CreationDate'
-          - description: The time at which the schedule group was created.
-        LastModificationDate:
-          allOf:
-          - $ref: '#/components/schemas/LastModificationDate'
-          - description: The time at which the schedule group was last modified.
-        Name:
-          allOf:
-          - $ref: '#/components/schemas/ScheduleGroupName'
-          - description: The name of the schedule group.
-        State:
-          allOf:
-          - $ref: '#/components/schemas/ScheduleGroupState'
-          - description: Specifies the state of the schedule group.
+    ServiceQuotaExceededException: {}
     ValidationException: {}
-    TagKey:
-      type: string
-      minLength: 1
-      maxLength: 128
-    CreateScheduleGroupOutput:
-      type: object
-      required:
-      - ScheduleGroupArn
-      properties:
-        ScheduleGroupArn:
-          allOf:
-          - $ref: '#/components/schemas/ScheduleGroupArn'
-          - description: The Amazon Resource Name (ARN) of the schedule group.
+    ScheduleGroupList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ScheduleGroupSummary'
+  parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

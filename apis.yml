@@ -76,6 +76,8 @@ apis:
   humanURL: https://aws.amazon.com/eventbridge/scheduler/
   baseURL: https://scheduler.amazonaws.com
   tags:
+  - Schedule
+  tags_raw:
   - Schedules
   properties:
   - type: OpenAPI

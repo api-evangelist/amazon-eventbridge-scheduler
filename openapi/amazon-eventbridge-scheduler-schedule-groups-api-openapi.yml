@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2021-06-30'
   x-release: v4
   title: Amazon EventBridge Scheduler Schedule Groups API
-  description: ' Amazon EventBridge Scheduler is a serverless scheduler that allows you to create, run, and manage tasks from one central, managed service. EventBridge Scheduler delivers your tasks reliably, with built-in mechanisms that adjust your schedules based on the availability of downstream targets. The following reference lists the available API actions, and data types for EventBridge Scheduler. '
+  description: Amazon EventBridge Scheduler is a serverless scheduler that allows you to create, run, and manage tasks from one central, managed service. EventBridge Scheduler delivers your tasks reliably, with built-in mechanisms that adjust your schedules based on the availability of downstream targets. The following reference lists the available API actions, and data types for EventBridge Scheduler.
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/scheduler-2021-06-30.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -239,7 +240,10 @@ paths:
       - Schedule Groups
     delete:
       operationId: DeleteScheduleGroup
-      description: <p>Deletes the specified schedule group. Deleting a schedule group results in EventBridge Scheduler deleting all schedules associated with the group. When you delete a group, it remains in a <code>DELETING</code> state until all of its associated schedules are deleted. Schedules associated with the group that are set to run while the schedule group is in the process of being deleted might continue to invoke their targets until the schedule group and its associated schedules are deleted.</p> <note> <p> This operation is eventually consistent. </p> </note>
+      description: 'Deletes the specified schedule group. Deleting a schedule group results in EventBridge Scheduler deleting all schedules associated with the group. When you delete a group, it remains in a DELETING state until all of its associated schedules are deleted. Schedules associated with the group that are set to run while the schedule group is in the process of being deleted might continue to invoke their targets until the schedule group and its associated schedules are deleted.
+
+
+        This operation is eventually consistent.'
       responses:
         '200':
           description: Success
@@ -505,92 +509,21 @@ paths:
       - Schedule Groups
 components:
   schemas:
-    ScheduleGroupArn:
+    ScheduleGroupName:
       type: string
-      pattern: ^arn:aws(-[a-z]+)?:scheduler:[a-z0-9\-]+:\d{12}:schedule-group\/[0-9a-zA-Z-_.]+$
+      pattern: ^[0-9a-zA-Z-_.]+$
       minLength: 1
-      maxLength: 1224
-    ThrottlingException: {}
-    TagValue:
-      type: string
-      minLength: 1
-      maxLength: 256
+      maxLength: 64
+    ConflictException: {}
+    ResourceNotFoundException: {}
     DeleteScheduleGroupOutput:
       type: object
       properties: {}
-    ConflictException: {}
-    CreateScheduleGroupOutput:
-      type: object
-      required:
-      - ScheduleGroupArn
-      properties:
-        ScheduleGroupArn:
-          allOf:
-          - $ref: '#/components/schemas/ScheduleGroupArn'
-          - description: The Amazon Resource Name (ARN) of the schedule group.
-    NextToken:
-      type: string
-      minLength: 1
-      maxLength: 2048
-    ListScheduleGroupsOutput:
-      type: object
-      required:
-      - ScheduleGroups
-      properties:
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: Indicates whether there are additional results to retrieve. If the value is null, there are no more results.
-        ScheduleGroups:
-          allOf:
-          - $ref: '#/components/schemas/ScheduleGroupList'
-          - description: The schedule groups that match the specified criteria.
-    TagKey:
-      type: string
-      minLength: 1
-      maxLength: 128
-    GetScheduleGroupOutput:
-      type: object
-      properties:
-        Arn:
-          allOf:
-          - $ref: '#/components/schemas/ScheduleGroupArn'
-          - description: The Amazon Resource Name (ARN) of the schedule group.
-        CreationDate:
-          allOf:
-          - $ref: '#/components/schemas/CreationDate'
-          - description: The time at which the schedule group was created.
-        LastModificationDate:
-          allOf:
-          - $ref: '#/components/schemas/LastModificationDate'
-          - description: The time at which the schedule group was last modified.
-        Name:
-          allOf:
-          - $ref: '#/components/schemas/ScheduleGroupName'
-          - description: The name of the schedule group.
-        State:
-          allOf:
-          - $ref: '#/components/schemas/ScheduleGroupState'
-          - description: Specifies the state of the schedule group.
-    Tag:
-      type: object
-      required:
-      - Key
-      - Value
-      properties:
-        Key:
-          allOf:
-          - $ref: '#/components/schemas/TagKey'
-          - description: The key for the tag.
-        Value:
-          allOf:
-          - $ref: '#/components/schemas/TagValue'
-          - description: The value for the tag.
-      description: Tag to associate with a schedule group.
-    CreationDate:
-      type: string
-      format: date-time
-    InternalServerException: {}
+    ServiceQuotaExceededException: {}
+    ScheduleGroupList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ScheduleGroupSummary'
     ScheduleGroupSummary:
       type: object
       properties:
@@ -615,47 +548,100 @@ components:
           - $ref: '#/components/schemas/ScheduleGroupState'
           - description: Specifies the state of the schedule group.
       description: The details of a schedule group.
+    CreateScheduleGroupOutput:
+      type: object
+      required:
+      - ScheduleGroupArn
+      properties:
+        ScheduleGroupArn:
+          allOf:
+          - $ref: '#/components/schemas/ScheduleGroupArn'
+          - description: The Amazon Resource Name (ARN) of the schedule group.
+    ThrottlingException: {}
+    NextToken:
+      type: string
+      minLength: 1
+      maxLength: 2048
+    ScheduleGroupArn:
+      type: string
+      pattern: ^arn:aws(-[a-z]+)?:scheduler:[a-z0-9\-]+:\d{12}:schedule-group\/[0-9a-zA-Z-_.]+$
+      minLength: 1
+      maxLength: 1224
+    ListScheduleGroupsOutput:
+      type: object
+      required:
+      - ScheduleGroups
+      properties:
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: Indicates whether there are additional results to retrieve. If the value is null, there are no more results.
+        ScheduleGroups:
+          allOf:
+          - $ref: '#/components/schemas/ScheduleGroupList'
+          - description: The schedule groups that match the specified criteria.
+    ValidationException: {}
+    Tag:
+      type: object
+      required:
+      - Key
+      - Value
+      properties:
+        Key:
+          allOf:
+          - $ref: '#/components/schemas/TagKey'
+          - description: The key for the tag.
+        Value:
+          allOf:
+          - $ref: '#/components/schemas/TagValue'
+          - description: The value for the tag.
+      description: Tag to associate with a schedule group.
+    InternalServerException: {}
+    LastModificationDate:
+      type: string
+      format: date-time
+    TagValue:
+      type: string
+      minLength: 1
+      maxLength: 256
+    GetScheduleGroupOutput:
+      type: object
+      properties:
+        Arn:
+          allOf:
+          - $ref: '#/components/schemas/ScheduleGroupArn'
+          - description: The Amazon Resource Name (ARN) of the schedule group.
+        CreationDate:
+          allOf:
+          - $ref: '#/components/schemas/CreationDate'
+          - description: The time at which the schedule group was created.
+        LastModificationDate:
+          allOf:
+          - $ref: '#/components/schemas/LastModificationDate'
+          - description: The time at which the schedule group was last modified.
+        Name:
+          allOf:
+          - $ref: '#/components/schemas/ScheduleGroupName'
+          - description: The name of the schedule group.
+        State:
+          allOf:
+          - $ref: '#/components/schemas/ScheduleGroupState'
+          - description: Specifies the state of the schedule group.
     ScheduleGroupState:
       type: string
       enum:
       - ACTIVE
       - DELETING
-    ResourceNotFoundException: {}
-    LastModificationDate:
+    TagKey:
+      type: string
+      minLength: 1
+      maxLength: 128
+    CreationDate:
       type: string
       format: date-time
-    ScheduleGroupName:
-      type: string
-      pattern: ^[0-9a-zA-Z-_.]+$
-      minLength: 1
-      maxLength: 64
-    ServiceQuotaExceededException: {}
-    ValidationException: {}
-    ScheduleGroupList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ScheduleGroupSummary'
   parameters:
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -672,8 +658,26 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

@@ -1,9 +1,7 @@
 {
   "provider": "amazon-eventbridge-scheduler",
   "sources": [
-    "amazon-eventbridge-scheduler-schedule-groups-api-openapi.yml",
-    "amazon-eventbridge-scheduler-schedules-api-openapi.yml",
-    "amazon-eventbridge-scheduler-tags-api-openapi.yml"
+    "_original/amazon-eventbridge-scheduler-openapi.yml"
   ],
   "outputs": [
     "amazon-eventbridge-scheduler-schedule-groups-api-openapi.yml",
@@ -14,7 +12,28 @@
   "errors": [],
   "warnings": [],
   "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "amazon-eventbridge-scheduler-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "amazon-eventbridge-scheduler-openapi.yml: tagged paths POST /schedules/{Name} -> Schedules",
+    "amazon-eventbridge-scheduler-openapi.yml: tagged paths DELETE /schedules/{Name} -> Schedules",
+    "amazon-eventbridge-scheduler-openapi.yml: tagged paths GET /schedules/{Name} -> Schedules",
+    "amazon-eventbridge-scheduler-openapi.yml: tagged paths PUT /schedules/{Name} -> Schedules",
+    "amazon-eventbridge-scheduler-openapi.yml: tagged paths POST /schedule-groups/{Name} -> Schedule Groups",
+    "amazon-eventbridge-scheduler-openapi.yml: tagged paths DELETE /schedule-groups/{Name} -> Schedule Groups",
+    "amazon-eventbridge-scheduler-openapi.yml: tagged paths GET /schedule-groups/{Name} -> Schedule Groups",
+    "amazon-eventbridge-scheduler-openapi.yml: tagged paths GET /schedule-groups -> Schedule Groups",
+    "amazon-eventbridge-scheduler-openapi.yml: tagged paths GET /schedules -> Schedules",
+    "amazon-eventbridge-scheduler-openapi.yml: tagged paths GET /tags/{ResourceArn} -> Tags",
+    "amazon-eventbridge-scheduler-openapi.yml: tagged paths POST /tags/{ResourceArn} -> Tags",
+    "amazon-eventbridge-scheduler-openapi.yml: tagged paths DELETE /tags/{ResourceArn}#TagKeys -> Tags",
+    "amazon-eventbridge-scheduler-openapi.yml: declared missing tag: Schedule Groups",
+    "amazon-eventbridge-scheduler-openapi.yml: declared missing tag: Schedules",
+    "amazon-eventbridge-scheduler-openapi.yml: declared missing tag: Tags",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "amazon-eventbridge-scheduler-schedule-groups-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-eventbridge-scheduler-schedules-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-eventbridge-scheduler-tags-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

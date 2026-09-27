@@ -130,7 +130,7 @@ apis:
     url: json-ld/amazon-eventbridge-scheduler-context.jsonld
 common:
 - type: Website
-  url: https://amazon.com
+  url: https://aws.amazon.com/eventbridge/scheduler/
 - type: AgenticAccess
   url: agentic-access/amazon-eventbridge-scheduler-agentic-access.yml
 - type: TrustCenter
@@ -243,5 +243,5 @@ common:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
-x-parent: aws
+x-parent: amazon-web-services
 x-relationship: product

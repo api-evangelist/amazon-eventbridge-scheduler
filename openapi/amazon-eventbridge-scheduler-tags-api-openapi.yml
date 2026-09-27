@@ -414,16 +414,67 @@ paths:
       tags:
       - Tags
 components:
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
+    ConflictException: {}
+    TagKey:
+      type: string
+      minLength: 1
+      maxLength: 128
+    ThrottlingException: {}
+    TagValue:
+      type: string
+      minLength: 1
+      maxLength: 256
     TagList:
       type: array
       items:
         $ref: '#/components/schemas/Tag'
       minItems: 0
       maxItems: 200
-    ConflictException: {}
     ResourceNotFoundException: {}
-    ThrottlingException: {}
     ListTagsForResourceOutput:
       type: object
       properties:
@@ -432,10 +483,6 @@ components:
           - $ref: '#/components/schemas/TagList'
           - description: The list of tags associated with the specified resource.
     UntagResourceOutput:
-      type: object
-      properties: {}
-    ValidationException: {}
-    TagResourceOutput:
       type: object
       properties: {}
     Tag:
@@ -453,58 +500,11 @@ components:
           - $ref: '#/components/schemas/TagValue'
           - description: The value for the tag.
       description: Tag to associate with a schedule group.
+    TagResourceOutput:
+      type: object
+      properties: {}
+    ValidationException: {}
     InternalServerException: {}
-    TagValue:
-      type: string
-      minLength: 1
-      maxLength: 256
-    TagKey:
-      type: string
-      minLength: 1
-      maxLength: 128
-  parameters:
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
   securitySchemes:
     hmac:
       type: apiKey

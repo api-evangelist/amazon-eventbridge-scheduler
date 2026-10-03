@@ -414,33 +414,63 @@ paths:
       tags:
       - Tags
 components:
+  schemas:
+    TagValue:
+      type: string
+      minLength: 1
+      maxLength: 256
+    TagKey:
+      type: string
+      minLength: 1
+      maxLength: 128
+    InternalServerException: {}
+    ListTagsForResourceOutput:
+      type: object
+      properties:
+        Tags:
+          allOf:
+          - $ref: '#/components/schemas/TagList'
+          - description: The list of tags associated with the specified resource.
+    ValidationException: {}
+    ConflictException: {}
+    ThrottlingException: {}
+    ResourceNotFoundException: {}
+    TagResourceOutput:
+      type: object
+      properties: {}
+    UntagResourceOutput:
+      type: object
+      properties: {}
+    TagList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Tag'
+      minItems: 0
+      maxItems: 200
+    Tag:
+      type: object
+      required:
+      - Key
+      - Value
+      properties:
+        Key:
+          allOf:
+          - $ref: '#/components/schemas/TagKey'
+          - description: The key for the tag.
+        Value:
+          allOf:
+          - $ref: '#/components/schemas/TagValue'
+          - description: The value for the tag.
+      description: Tag to associate with a schedule group.
   parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
       required: false
     X-Amz-Date:
       name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -457,54 +487,24 @@ components:
       schema:
         type: string
       required: false
-  schemas:
-    ConflictException: {}
-    TagKey:
-      type: string
-      minLength: 1
-      maxLength: 128
-    ThrottlingException: {}
-    TagValue:
-      type: string
-      minLength: 1
-      maxLength: 256
-    TagList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Tag'
-      minItems: 0
-      maxItems: 200
-    ResourceNotFoundException: {}
-    ListTagsForResourceOutput:
-      type: object
-      properties:
-        Tags:
-          allOf:
-          - $ref: '#/components/schemas/TagList'
-          - description: The list of tags associated with the specified resource.
-    UntagResourceOutput:
-      type: object
-      properties: {}
-    Tag:
-      type: object
-      required:
-      - Key
-      - Value
-      properties:
-        Key:
-          allOf:
-          - $ref: '#/components/schemas/TagKey'
-          - description: The key for the tag.
-        Value:
-          allOf:
-          - $ref: '#/components/schemas/TagValue'
-          - description: The value for the tag.
-      description: Tag to associate with a schedule group.
-    TagResourceOutput:
-      type: object
-      properties: {}
-    ValidationException: {}
-    InternalServerException: {}
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

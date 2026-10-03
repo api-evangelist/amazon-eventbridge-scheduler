@@ -509,71 +509,6 @@ paths:
       - Schedule Groups
 components:
   schemas:
-    CreateScheduleGroupOutput:
-      type: object
-      required:
-      - ScheduleGroupArn
-      properties:
-        ScheduleGroupArn:
-          allOf:
-          - $ref: '#/components/schemas/ScheduleGroupArn'
-          - description: The Amazon Resource Name (ARN) of the schedule group.
-    DeleteScheduleGroupOutput:
-      type: object
-      properties: {}
-    LastModificationDate:
-      type: string
-      format: date-time
-    ListScheduleGroupsOutput:
-      type: object
-      required:
-      - ScheduleGroups
-      properties:
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: Indicates whether there are additional results to retrieve. If the value is null, there are no more results.
-        ScheduleGroups:
-          allOf:
-          - $ref: '#/components/schemas/ScheduleGroupList'
-          - description: The schedule groups that match the specified criteria.
-    ConflictException: {}
-    TagKey:
-      type: string
-      minLength: 1
-      maxLength: 128
-    NextToken:
-      type: string
-      minLength: 1
-      maxLength: 2048
-    ScheduleGroupName:
-      type: string
-      pattern: ^[0-9a-zA-Z-_.]+$
-      minLength: 1
-      maxLength: 64
-    GetScheduleGroupOutput:
-      type: object
-      properties:
-        Arn:
-          allOf:
-          - $ref: '#/components/schemas/ScheduleGroupArn'
-          - description: The Amazon Resource Name (ARN) of the schedule group.
-        CreationDate:
-          allOf:
-          - $ref: '#/components/schemas/CreationDate'
-          - description: The time at which the schedule group was created.
-        LastModificationDate:
-          allOf:
-          - $ref: '#/components/schemas/LastModificationDate'
-          - description: The time at which the schedule group was last modified.
-        Name:
-          allOf:
-          - $ref: '#/components/schemas/ScheduleGroupName'
-          - description: The name of the schedule group.
-        State:
-          allOf:
-          - $ref: '#/components/schemas/ScheduleGroupState'
-          - description: Specifies the state of the schedule group.
     ScheduleGroupSummary:
       type: object
       properties:
@@ -598,25 +533,97 @@ components:
           - $ref: '#/components/schemas/ScheduleGroupState'
           - description: Specifies the state of the schedule group.
       description: The details of a schedule group.
-    ThrottlingException: {}
+    TagKey:
+      type: string
+      minLength: 1
+      maxLength: 128
     TagValue:
       type: string
       minLength: 1
       maxLength: 256
-    ResourceNotFoundException: {}
-    ServiceQuotaExceededException: {}
-    CreationDate:
+    InternalServerException: {}
+    ScheduleGroupName:
+      type: string
+      pattern: ^[0-9a-zA-Z-_.]+$
+      minLength: 1
+      maxLength: 64
+    ValidationException: {}
+    CreateScheduleGroupOutput:
+      type: object
+      required:
+      - ScheduleGroupArn
+      properties:
+        ScheduleGroupArn:
+          allOf:
+          - $ref: '#/components/schemas/ScheduleGroupArn'
+          - description: The Amazon Resource Name (ARN) of the schedule group.
+    LastModificationDate:
       type: string
       format: date-time
+    ThrottlingException: {}
+    ConflictException: {}
+    ScheduleGroupList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ScheduleGroupSummary'
+    ScheduleGroupArn:
+      type: string
+      pattern: ^arn:aws(-[a-z]+)?:scheduler:[a-z0-9\-]+:\d{12}:schedule-group\/[0-9a-zA-Z-_.]+$
+      minLength: 1
+      maxLength: 1224
+    DeleteScheduleGroupOutput:
+      type: object
+      properties: {}
+    ServiceQuotaExceededException: {}
+    ResourceNotFoundException: {}
     ScheduleGroupState:
       type: string
       enum:
       - ACTIVE
       - DELETING
-    ScheduleGroupList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ScheduleGroupSummary'
+    ListScheduleGroupsOutput:
+      type: object
+      required:
+      - ScheduleGroups
+      properties:
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: Indicates whether there are additional results to retrieve. If the value is null, there are no more results.
+        ScheduleGroups:
+          allOf:
+          - $ref: '#/components/schemas/ScheduleGroupList'
+          - description: The schedule groups that match the specified criteria.
+    CreationDate:
+      type: string
+      format: date-time
+    NextToken:
+      type: string
+      minLength: 1
+      maxLength: 2048
+    GetScheduleGroupOutput:
+      type: object
+      properties:
+        Arn:
+          allOf:
+          - $ref: '#/components/schemas/ScheduleGroupArn'
+          - description: The Amazon Resource Name (ARN) of the schedule group.
+        CreationDate:
+          allOf:
+          - $ref: '#/components/schemas/CreationDate'
+          - description: The time at which the schedule group was created.
+        LastModificationDate:
+          allOf:
+          - $ref: '#/components/schemas/LastModificationDate'
+          - description: The time at which the schedule group was last modified.
+        Name:
+          allOf:
+          - $ref: '#/components/schemas/ScheduleGroupName'
+          - description: The name of the schedule group.
+        State:
+          allOf:
+          - $ref: '#/components/schemas/ScheduleGroupState'
+          - description: Specifies the state of the schedule group.
     Tag:
       type: object
       required:
@@ -632,40 +639,15 @@ components:
           - $ref: '#/components/schemas/TagValue'
           - description: The value for the tag.
       description: Tag to associate with a schedule group.
-    ScheduleGroupArn:
-      type: string
-      pattern: ^arn:aws(-[a-z]+)?:scheduler:[a-z0-9\-]+:\d{12}:schedule-group\/[0-9a-zA-Z-_.]+$
-      minLength: 1
-      maxLength: 1224
-    ValidationException: {}
-    InternalServerException: {}
   parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
       required: false
     X-Amz-Date:
       name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -678,6 +660,24 @@ components:
       required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string

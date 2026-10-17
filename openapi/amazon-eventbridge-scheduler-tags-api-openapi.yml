@@ -415,23 +415,30 @@ paths:
       - Tags
 components:
   schemas:
+    ThrottlingException: {}
+    TagResourceOutput:
+      type: object
+      properties: {}
+    ValidationException: {}
     TagList:
       type: array
       items:
         $ref: '#/components/schemas/Tag'
       minItems: 0
       maxItems: 200
+    ResourceNotFoundException: {}
+    InternalServerException: {}
+    ListTagsForResourceOutput:
+      type: object
+      properties:
+        Tags:
+          allOf:
+          - $ref: '#/components/schemas/TagList'
+          - description: The list of tags associated with the specified resource.
     TagKey:
       type: string
       minLength: 1
       maxLength: 128
-    TagValue:
-      type: string
-      minLength: 1
-      maxLength: 256
-    TagResourceOutput:
-      type: object
-      properties: {}
     Tag:
       type: object
       required:
@@ -447,40 +454,15 @@ components:
           - $ref: '#/components/schemas/TagValue'
           - description: The value for the tag.
       description: Tag to associate with a schedule group.
-    ValidationException: {}
-    ListTagsForResourceOutput:
-      type: object
-      properties:
-        Tags:
-          allOf:
-          - $ref: '#/components/schemas/TagList'
-          - description: The list of tags associated with the specified resource.
-    InternalServerException: {}
-    ConflictException: {}
-    ResourceNotFoundException: {}
-    ThrottlingException: {}
+    TagValue:
+      type: string
+      minLength: 1
+      maxLength: 256
     UntagResourceOutput:
       type: object
       properties: {}
+    ConflictException: {}
   parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Date:
       name: X-Amz-Date
       in: header
@@ -493,14 +475,32 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string

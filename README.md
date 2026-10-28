@@ -1,4 +1,4 @@
-# Amazon EventBridge Scheduler (amazon-eventbridge-scheduler)
+# Amazon EventBridge Scheduler
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,82 +66,258 @@
 
 Amazon EventBridge Scheduler is a fully managed, serverless scheduler that enables you to create, run, and manage tasks from one central, managed service. With EventBridge Scheduler, you can create millions of schedules using cron and rate expressions.
 
-**APIs.json:** [https://aws.amazon.com/eventbridge/scheduler/](https://aws.amazon.com/eventbridge/scheduler/)
+**Areas:** Amazon Web Services · AWS · Cron · Event-Driven · Scheduling · Serverless
 
-## Tags
+## Amazon EventBridge Scheduler on APIs.io
 
-- Amazon Web Services
-- AWS
-- Cron
-- Event-Driven
-- Scheduling
-- Serverless
+Everything profiled for Amazon EventBridge Scheduler is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/amazon-eventbridge-scheduler/](https://apis.io/providers/amazon-eventbridge-scheduler/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (3)
 
-- **Created:** 2024-01-15
-- **Modified:** 2026-05-19
+- [Amazon EventBridge Scheduler Schedule Groups API](https://apis.io/apis/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-schedule-groups-api/) — The Schedule Groups API from Amazon EventBridge Scheduler — 2 operation(s) for schedule groups.
+- [Amazon EventBridge Scheduler Schedules API](https://apis.io/apis/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-schedules-api/) — The Schedules API from Amazon EventBridge Scheduler — 2 operation(s) for schedules.
+- [Amazon EventBridge Scheduler Tags API](https://apis.io/apis/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-tags-api/) — The Tags API from Amazon EventBridge Scheduler — 2 operation(s) for tags.
 
-## APIs
+### Published properties
 
-### Amazon EventBridge Scheduler API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-API for creating, updating, and managing scheduled tasks using cron expressions, rate expressions, and one-time schedules at scale.
+#### Arazzo workflows (7)
 
-- **Human URL:** [https://aws.amazon.com/eventbridge/scheduler/](https://aws.amazon.com/eventbridge/scheduler/)
-- **Base URL:** `https://scheduler.amazonaws.com`
+Multi-step workflows that chain operations into a business task.
 
-#### Tags
+- [EventBridge Scheduler Audit Schedule Group Tags](https://apis.io/arazzos/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-audit-schedule-group-tags-workflow/)
+- [EventBridge Scheduler Create Then Update Schedule](https://apis.io/arazzos/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-create-then-update-schedule-workflow/)
+- [EventBridge Scheduler List Inspect And Delete Schedule](https://apis.io/arazzos/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-list-inspect-delete-schedule-workflow/)
+- [EventBridge Scheduler Provision Grouped Schedule](https://apis.io/arazzos/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-provision-grouped-schedule-workflow/)
+- [EventBridge Scheduler Schedule Group Lifecycle](https://apis.io/arazzos/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-schedule-group-lifecycle-workflow/)
+- [EventBridge Scheduler Tag Schedule Group](https://apis.io/arazzos/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-tag-schedule-group-workflow/)
+- [EventBridge Scheduler Untag Schedule Group](https://apis.io/arazzos/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-untag-schedule-group-workflow/)
 
-- Cron
-- Event-Driven
-- Scheduling
-- Serverless
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Documentation](https://docs.aws.amazon.com/scheduler/latest/UserGuide/)
-- [OpenAPI](openapi/amazon-eventbridge-scheduler-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/amazon-eventbridge-scheduler.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/amazon-eventbridge-scheduler.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [API Reference](https://docs.aws.amazon.com/scheduler/latest/APIReference/)
-- [Getting Started](https://aws.amazon.com/eventbridge/scheduler/)
-- [Pricing](https://aws.amazon.com/eventbridge/pricing/)
-- [F A Q](https://aws.amazon.com/eventbridge/faqs/)
-- [JSON Schema](json-schema/amazon-eventbridge-scheduler-action-after-completion-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/amazon-eventbridge-scheduler-assign-public-ip-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/amazon-eventbridge-scheduler-aws-vpc-configuration-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](json-ld/amazon-eventbridge-scheduler-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
+- [Amazon Eventbridge Scheduler Agentic Access](https://apis.io/agentic-access/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-agentic-access/)
 
-## Common Properties
+#### JSON Schema (117)
 
-- [Arazzo Workflows](arazzo/) — [Arazzo Specification](https://spec.openapis.org/arazzo/latest.html)
-- [Portal](https://aws.amazon.com/)
-- [Developer Portal](https://aws.amazon.com/eventbridge/)
+The data models the API reads and writes.
+
+- [ActionAfterCompletion](https://apis.io/schemas/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-action-after-completion/)
+- [AssignPublicIp](https://apis.io/schemas/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-assign-public-ip/)
+- [AwsVpcConfiguration](https://apis.io/schemas/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-aws-vpc-configuration/)
+- [CapacityProvider](https://apis.io/schemas/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-capacity-provider/)
+- [CapacityProviderStrategy](https://apis.io/schemas/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-capacity-provider-strategy/)
+- [CapacityProviderStrategyItem](https://apis.io/schemas/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-capacity-provider-strategy-item/)
+- [CapacityProviderStrategyItemBase](https://apis.io/schemas/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-capacity-provider-strategy-item-base/)
+- [CapacityProviderStrategyItemWeight](https://apis.io/schemas/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-capacity-provider-strategy-item-weight/)
+- [ClientToken](https://apis.io/schemas/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-client-token/)
+- [ConflictException](https://apis.io/schemas/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-conflict-exception/)
+- [CreateScheduleGroupInput](https://apis.io/schemas/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-create-schedule-group-input/)
+- [CreateScheduleGroupOutput](https://apis.io/schemas/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-create-schedule-group-output/)
+- [CreateScheduleInput](https://apis.io/schemas/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-create-schedule-input/)
+- [CreateScheduleOutput](https://apis.io/schemas/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-create-schedule-output/)
+- [CreationDate](https://apis.io/schemas/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-creation-date/)
+- [DeadLetterConfig](https://apis.io/schemas/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-dead-letter-config/)
+- [DeadLetterConfigArnString](https://apis.io/schemas/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-dead-letter-config-arn-string/)
+- [DeleteScheduleGroupInput](https://apis.io/schemas/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-delete-schedule-group-input/)
+- [DeleteScheduleGroupOutput](https://apis.io/schemas/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-delete-schedule-group-output/)
+- [DeleteScheduleInput](https://apis.io/schemas/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-delete-schedule-input/)
+- [DeleteScheduleOutput](https://apis.io/schemas/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-delete-schedule-output/)
+- [Description](https://apis.io/schemas/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-description/)
+- [DetailType](https://apis.io/schemas/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-detail-type/)
+- [EcsParameters](https://apis.io/schemas/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-ecs-parameters/)
+- [EnableECSManagedTags](https://apis.io/schemas/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-enable-ecs-managed-tags/)
+- …and 92 more published on APIs.io
+
+#### JSON Structure (117)
+
+Data models expressed in JSON Structure.
+
+- [Amazon Eventbridge Scheduler Action After Completion Structure](https://apis.io/json-structure/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-action-after-completion-structure/)
+- [Amazon Eventbridge Scheduler Assign Public Ip Structure](https://apis.io/json-structure/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-assign-public-ip-structure/)
+- [Amazon Eventbridge Scheduler Aws Vpc Configuration Structure](https://apis.io/json-structure/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-aws-vpc-configuration-structure/)
+- [Amazon Eventbridge Scheduler Capacity Provider Strategy Item Base Structure](https://apis.io/json-structure/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-capacity-provider-strategy-item-base-structure/)
+- [Amazon Eventbridge Scheduler Capacity Provider Strategy Item Structure](https://apis.io/json-structure/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-capacity-provider-strategy-item-structure/)
+- [Amazon Eventbridge Scheduler Capacity Provider Strategy Item Weight Structure](https://apis.io/json-structure/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-capacity-provider-strategy-item-weight-structure/)
+- [Amazon Eventbridge Scheduler Capacity Provider Strategy Structure](https://apis.io/json-structure/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-capacity-provider-strategy-structure/)
+- [Amazon Eventbridge Scheduler Capacity Provider Structure](https://apis.io/json-structure/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-capacity-provider-structure/)
+- [Amazon Eventbridge Scheduler Client Token Structure](https://apis.io/json-structure/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-client-token-structure/)
+- [Amazon Eventbridge Scheduler Conflict Exception Structure](https://apis.io/json-structure/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-conflict-exception-structure/)
+- [Amazon Eventbridge Scheduler Create Schedule Group Input Structure](https://apis.io/json-structure/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-create-schedule-group-input-structure/)
+- [Amazon Eventbridge Scheduler Create Schedule Group Output Structure](https://apis.io/json-structure/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-create-schedule-group-output-structure/)
+- [Amazon Eventbridge Scheduler Create Schedule Input Structure](https://apis.io/json-structure/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-create-schedule-input-structure/)
+- [Amazon Eventbridge Scheduler Create Schedule Output Structure](https://apis.io/json-structure/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-create-schedule-output-structure/)
+- [Amazon Eventbridge Scheduler Creation Date Structure](https://apis.io/json-structure/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-creation-date-structure/)
+- [Amazon Eventbridge Scheduler Dead Letter Config Arn String Structure](https://apis.io/json-structure/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-dead-letter-config-arn-string-structure/)
+- [Amazon Eventbridge Scheduler Dead Letter Config Structure](https://apis.io/json-structure/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-dead-letter-config-structure/)
+- [Amazon Eventbridge Scheduler Delete Schedule Group Input Structure](https://apis.io/json-structure/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-delete-schedule-group-input-structure/)
+- [Amazon Eventbridge Scheduler Delete Schedule Group Output Structure](https://apis.io/json-structure/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-delete-schedule-group-output-structure/)
+- [Amazon Eventbridge Scheduler Delete Schedule Input Structure](https://apis.io/json-structure/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-delete-schedule-input-structure/)
+- [Amazon Eventbridge Scheduler Delete Schedule Output Structure](https://apis.io/json-structure/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-delete-schedule-output-structure/)
+- [Amazon Eventbridge Scheduler Description Structure](https://apis.io/json-structure/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-description-structure/)
+- [Amazon Eventbridge Scheduler Detail Type Structure](https://apis.io/json-structure/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-detail-type-structure/)
+- [Amazon Eventbridge Scheduler Ecs Parameters Structure](https://apis.io/json-structure/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-ecs-parameters-structure/)
+- [Amazon Eventbridge Scheduler Enable Ecs Managed Tags Structure](https://apis.io/json-structure/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-enable-ecs-managed-tags-structure/)
+- …and 92 more published on APIs.io
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Amazon Eventbridge Scheduler Context](https://apis.io/jsonld/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Amazon Eventbridge Scheduler Vocabulary](https://apis.io/vocabularies/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-vocabulary/)
+
+#### Examples (50)
+
+Example requests and responses.
+
+- [Amazon Eventbridge Scheduler Aws Vpc Configuration Example](https://apis.io/examples/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-aws-vpc-configuration-example/)
+- [Amazon Eventbridge Scheduler Capacity Provider Strategy Item Example](https://apis.io/examples/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-capacity-provider-strategy-item-example/)
+- [Amazon Eventbridge Scheduler Conflict Exception Example](https://apis.io/examples/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-conflict-exception-example/)
+- [Amazon Eventbridge Scheduler Create Schedule Group Input Example](https://apis.io/examples/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-create-schedule-group-input-example/)
+- [Amazon Eventbridge Scheduler Create Schedule Group Output Example](https://apis.io/examples/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-create-schedule-group-output-example/)
+- [Amazon Eventbridge Scheduler Create Schedule Input Example](https://apis.io/examples/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-create-schedule-input-example/)
+- [Amazon Eventbridge Scheduler Create Schedule Output Example](https://apis.io/examples/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-create-schedule-output-example/)
+- [Amazon Eventbridge Scheduler Dead Letter Config Example](https://apis.io/examples/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-dead-letter-config-example/)
+- [Amazon Eventbridge Scheduler Delete Schedule Group Input Example](https://apis.io/examples/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-delete-schedule-group-input-example/)
+- [Amazon Eventbridge Scheduler Delete Schedule Group Output Example](https://apis.io/examples/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-delete-schedule-group-output-example/)
+- [Amazon Eventbridge Scheduler Delete Schedule Input Example](https://apis.io/examples/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-delete-schedule-input-example/)
+- [Amazon Eventbridge Scheduler Delete Schedule Output Example](https://apis.io/examples/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-delete-schedule-output-example/)
+- [Amazon Eventbridge Scheduler Ecs Parameters Example](https://apis.io/examples/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-ecs-parameters-example/)
+- [Amazon Eventbridge Scheduler Event Bridge Parameters Example](https://apis.io/examples/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-event-bridge-parameters-example/)
+- [Amazon Eventbridge Scheduler Flexible Time Window Example](https://apis.io/examples/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-flexible-time-window-example/)
+- [Amazon Eventbridge Scheduler Get Schedule Group Input Example](https://apis.io/examples/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-get-schedule-group-input-example/)
+- [Amazon Eventbridge Scheduler Get Schedule Group Output Example](https://apis.io/examples/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-get-schedule-group-output-example/)
+- [Amazon Eventbridge Scheduler Get Schedule Input Example](https://apis.io/examples/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-get-schedule-input-example/)
+- [Amazon Eventbridge Scheduler Get Schedule Output Example](https://apis.io/examples/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-get-schedule-output-example/)
+- [Amazon Eventbridge Scheduler Internal Server Exception Example](https://apis.io/examples/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-internal-server-exception-example/)
+- [Amazon Eventbridge Scheduler Kinesis Parameters Example](https://apis.io/examples/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-kinesis-parameters-example/)
+- [Amazon Eventbridge Scheduler List Schedule Groups Input Example](https://apis.io/examples/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-list-schedule-groups-input-example/)
+- [Amazon Eventbridge Scheduler List Schedule Groups Output Example](https://apis.io/examples/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-list-schedule-groups-output-example/)
+- [Amazon Eventbridge Scheduler List Schedules Input Example](https://apis.io/examples/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-list-schedules-input-example/)
+- [Amazon Eventbridge Scheduler List Schedules Output Example](https://apis.io/examples/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-list-schedules-output-example/)
+- …and 25 more published on APIs.io
+
+#### Collections (8)
+
+Postman and Open Collection request collections.
+
+- [Amazon EventBridge Scheduler](https://apis.io/collections/amazon-eventbridge-scheduler/open-amazon-eventbridge-scheduler/)
+- [Amazon EventBridge Scheduler Schedule Groups API](https://apis.io/collections/amazon-eventbridge-scheduler/open-amazon-eventbridge-scheduler-schedule-groups-api/)
+- [Amazon EventBridge Scheduler Schedule Groups Schedules API](https://apis.io/collections/amazon-eventbridge-scheduler/open-amazon-eventbridge-scheduler-schedules-api/)
+- [Amazon EventBridge Scheduler Schedule Groups Tags API](https://apis.io/collections/amazon-eventbridge-scheduler/open-amazon-eventbridge-scheduler-tags-api/)
+- [Amazon EventBridge Scheduler](https://apis.io/collections/amazon-eventbridge-scheduler/postman-amazon-eventbridge-scheduler/)
+- [Amazon EventBridge Scheduler Schedule Groups API](https://apis.io/collections/amazon-eventbridge-scheduler/postman-amazon-eventbridge-scheduler-schedule-groups-api/)
+- [Amazon EventBridge Scheduler Schedule Groups Schedules API](https://apis.io/collections/amazon-eventbridge-scheduler/postman-amazon-eventbridge-scheduler-schedules-api/)
+- [Amazon EventBridge Scheduler Schedule Groups Tags API](https://apis.io/collections/amazon-eventbridge-scheduler/postman-amazon-eventbridge-scheduler-tags-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Amazon EventBridge Scheduler — jsonschema rules](https://apis.io/rules/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-jsonschema-spectral-rules/)
+- [Amazon EventBridge Scheduler API Rules](https://apis.io/rules/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-spectral-rules/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Amazon Eventbridge Scheduler Authentication](https://apis.io/security/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-authentication/)
+- [Amazon Eventbridge Scheduler Domain Security](https://apis.io/security/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-domain-security/)
+- [Amazon Eventbridge Scheduler Trust Center](https://apis.io/security/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-trust-center/)
+- [Amazon Eventbridge Scheduler Vulnerability Disclosure](https://apis.io/security/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Amazon Eventbridge Scheduler Plans Pricing](https://apis.io/plans/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Amazon Eventbridge Scheduler Rate Limits](https://apis.io/rate-limits/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Amazon Eventbridge Scheduler Finops](https://apis.io/finops/amazon-eventbridge-scheduler/amazon-eventbridge-scheduler-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://aws.amazon.com/eventbridge/scheduler/)
 - [Documentation](https://docs.aws.amazon.com/eventbridge/)
-- [Blog](https://aws.amazon.com/blogs/)
-- [GitHub Organization](https://github.com/aws)
-- [Console](https://console.aws.amazon.com/scheduler/)
-- [Sign Up](https://portal.aws.amazon.com/billing/signup)
-- [Login](https://signin.aws.amazon.com/)
-- [Status Page](https://health.aws.amazon.com/health/status)
 - [Support](https://aws.amazon.com/support/)
-- [F A Q](https://aws.amazon.com/eventbridge/faqs/)
-- [Terms of Service](https://aws.amazon.com/service-terms/)
-- [Privacy Policy](https://aws.amazon.com/privacy/)
-- [Compliance](https://aws.amazon.com/compliance/)
+- [Blog](https://aws.amazon.com/blogs/)
 - [Security](https://aws.amazon.com/security/)
-- [YouTube](https://www.youtube.com/user/AmazonWebServices)
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/eventbridge)
-- [Knowledge Center](https://repost.aws/knowledge-center)
-- [Contact](https://aws.amazon.com/contact-us/)
-- [Spectral Rules](rules/amazon-eventbridge-scheduler-spectral-rules.yml)
-- [Vocabulary](vocabulary/amazon-eventbridge-scheduler-vocabulary.yaml)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
+- [Compliance](https://aws.amazon.com/compliance/)
+- [Terms of service](https://aws.amazon.com/service-terms/)
+- [Privacy policy](https://aws.amazon.com/privacy/)
+- [GitHub](https://github.com/aws)
+- [Status](https://health.aws.amazon.com/health/status)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 60.2** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 68.1 |
+| Contract governance | 27.3 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 65.5 |
+| Access clarity | 61.8 |
+
+**Agent readiness 36.5** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | verified |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 35.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/amazon-eventbridge-scheduler/](https://apis.io/providers/amazon-eventbridge-scheduler/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Amazon EventBridge Scheduler: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/amazon-eventbridge-scheduler/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).

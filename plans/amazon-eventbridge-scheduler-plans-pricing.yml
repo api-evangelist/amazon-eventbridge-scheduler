@@ -85,7 +85,7 @@ plans:
   price_text: AWS management events Free
   period: none
 x-canonical:
-  generated: '2026-11-02'
+  generated: '2026-11-06'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - hybrid
@@ -99,15 +99,15 @@ x-canonical:
     model: hybrid
     model_how: derived
     units:
-    - other
+    - request
     periods:
     - month
   - name: Scheduler invocations (pricing example rate)
     access: other
-    model: unstated
+    model: metered
     model_how: derived
     units:
-    - other
+    - request
     periods:
     - month
   - name: Custom event bus ingress (pricing example rate)
@@ -152,10 +152,10 @@ x-canonical:
     - month
   - name: API destinations invocations (example rate)
     access: other
-    model: unstated
+    model: metered
     model_how: derived
     units:
-    - other
+    - request
     periods:
     - month
   - name: Event replay archive processing (example rate)
